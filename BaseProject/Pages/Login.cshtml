@@ -1,0 +1,24 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login page";
+}
+
+<form class="container-fluid">
+    <div class="row">
+        <div class="col-2"><p>Username</p></div>
+        <div class="col-4"><input id="UsernameInput" type="text" placeholder="Enter your username" /></div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>Password</p></div>
+        <div class="col-4"><input id="PasswordInput" type="password" placeholder="Enter your password" /></div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <input id="LoginButton" type="button" value="Login" />
+        </div>
+    </div>
+</form>
+
+
+<script src="~/js/authenticate.js"></script>

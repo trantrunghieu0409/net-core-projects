@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="row">
+    <h2>User list</h2>
+    <i id="Loading">Loading...</i>
+    <div class="col-6">
+        <ul id="userList"></ul>
+    </div>
+     <div class="col-6">
+        <input type="button" id="loadButton" value="Load User List" />
+     </div>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"><p>User</p></div>
+        <div class="col-md-4"><input id="userInput" placeholder="Give username" /></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><p>Message</p></div>
+        <div class="col-md-4"><input id="messageInput" placeholder="Your message" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <ul id="messagesList"></ul>
+    </div>
+</div>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
