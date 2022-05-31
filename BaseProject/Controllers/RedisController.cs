@@ -1,4 +1,5 @@
 ﻿using BaseProject.Entity;
+using BaseProject.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using StackExchange.Redis;
 using System.Text.Json;
@@ -33,8 +34,17 @@ namespace BaseProject.Controllers
             var resultJson = await _db.StringGetAsync(key);
 
             var newStudents = JsonSerializer.Deserialize<Student[]>(resultJson);
+
+            // Method 2: using HashSet to hash an object (can develop to hash a list of object though)
+            string key2 = "MyHash";
+            await _db.HashSetAsync(key2, HashEntryConverter.ToHashEntries(students[0]));
+
+            var hashResult = await _db.HashGetAllAsync(key2);
+            var newHashStudent = HashEntryConverter.ConvertFromRedis<Student>(hashResult); 
+
+
             
-            return newStudents[0].ToString();
+            return newHashStudent.ToString();
         }
     }
 }

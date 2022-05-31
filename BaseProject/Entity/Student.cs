@@ -11,6 +11,10 @@
             this.score = score;
         }
 
+        public Student()
+        {
+        }
+
         public void set(string name, int score)
         {
             this.name = name;
