@@ -2,6 +2,6 @@
 {
     public class AppSettings
     {
-        string ConnectionString { get; set; }
+       public int redisTimeout { get; set; }
     }
 }

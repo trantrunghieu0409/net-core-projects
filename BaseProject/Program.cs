@@ -12,8 +12,8 @@ services.AddDbContext<DataContext>(options =>
 {
    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
 });
-services.AddSingleton<IConnectionMultiplexer>(sp => 
-    ConnectionMultiplexer.Connect("localhost")
+services.AddSingleton<IConnectionMultiplexer>(sp =>
+    ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis"))
     );
 services.AddScoped<IStudentService, StudentService>();
 services.AddScoped<IStudentCacheService, StudentCacheService>();

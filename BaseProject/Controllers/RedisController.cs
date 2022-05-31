@@ -24,14 +24,14 @@ namespace BaseProject.Controllers
         public async Task<Student[]> GetAsync()
         {
             var students = await _studentCacheService.GetAllAsync();
-            return students;
+            return students.ToArray();
         }
 
         [HttpPost]
         public async Task<IActionResult> AddStudent(Student student)
         {
             _studentService.AddStudent(student);
-            _studentCacheService.AddStudent(student);
+            await _studentCacheService.AddStudent(student);
 
             return Ok(student);
         }

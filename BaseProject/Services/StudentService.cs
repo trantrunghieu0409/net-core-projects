@@ -5,7 +5,7 @@ namespace BaseProject.Services
 {
     public interface IStudentService
     {
-        Student[] GetAll();
+        List<Student> GetAll();
         Student GetStudentById(int Id);
 
         void AddStudent(Student student);
@@ -27,9 +27,9 @@ namespace BaseProject.Services
             _dataContext.SaveChanges();
         }
 
-        public Student[] GetAll()
+        public List<Student> GetAll()
         {
-            return _dataContext.Students.ToArray();
+            return new List<Student>(_dataContext.Students);
         }
 
         public Student GetStudentById(int Id)
