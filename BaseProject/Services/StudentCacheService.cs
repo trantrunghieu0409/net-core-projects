@@ -30,7 +30,13 @@ namespace BaseProject.Services
             var students = new List<Student>();
             try
             {
-                resultJson = await _db.ListRangeAsync(key, -nStudents); // get {nStudent} last students
+                int timeout=10;
+                var task = Task.Run(async () => await _db.ListRangeAsync(key, -nStudents));
+                if (task.Wait(TimeSpan.FromSeconds(timeout))) // wait for 10 seconds 
+                    resultJson = task.Result;
+                else
+                    throw new Exception("Timed out");
+
                 if (resultJson.Length == 0) 
                     throw new Exception("No data");
 
