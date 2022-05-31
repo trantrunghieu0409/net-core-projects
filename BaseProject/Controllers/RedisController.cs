@@ -11,46 +11,27 @@ namespace BaseProject.Controllers
     [Route("api/[controller]")]
     public class RedisController: Controller
     {
-        private readonly IDatabase _db;
         private readonly IStudentService _studentService;
-        private readonly string key = "MyStudent";
+        private readonly IStudentCacheService _studentCacheService;
 
-        public RedisController(IConnectionMultiplexer connection, IStudentService studentService)
+        public RedisController(IStudentService studentService, IStudentCacheService studentCacheService)
         {
-            _db = connection.GetDatabase();
             _studentService = studentService;
+            _studentCacheService = studentCacheService;
         }
 
         [HttpGet]
-        public async Task<string> GetAsync()
+        public async Task<Student[]> GetAsync()
         {
-
-            //string[] names = { "David", "Helen", "Alan", "Peter", "Parker" };
-            //int[] scores = { 5, 6, 7, 8, 9 };
-
-            //Student[] students = new Student[names.Length];
-            //for (int i = 0; i < names.Length; i++)
-            //{
-            //    students[i] = new Student() {  name = names[i], score = scores[i] };
-            //    _studentService.AddStudent(students[i]);
-            //}
-
-            var students = _studentService.GetAll();
-
-            
-
-            var resultJson = await _db.StringGetAsync(key);
-
-            var newStudents = JsonSerializer.Deserialize<Student[]>(resultJson);
-            
-            return newStudents[0].ToString();
+            var students = await _studentCacheService.GetAllAsync();
+            return students;
         }
 
         [HttpPost]
         public async Task<IActionResult> AddStudent(Student student)
         {
             _studentService.AddStudent(student);
-            await _db.StringSetAsync(key, JsonSerializer.Serialize(students));
+            _studentCacheService.AddStudent(student);
 
             return Ok(student);
         }

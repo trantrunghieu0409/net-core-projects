@@ -16,6 +16,7 @@ services.AddSingleton<IConnectionMultiplexer>(sp =>
     ConnectionMultiplexer.Connect("localhost")
     );
 services.AddScoped<IStudentService, StudentService>();
+services.AddScoped<IStudentCacheService, StudentCacheService>();
 
 var app = builder.Build();
 
