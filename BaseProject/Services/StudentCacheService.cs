@@ -26,18 +26,25 @@ namespace BaseProject.Services
 
         public async Task<List<Student>> GetAllAsync(int nStudents = 5)
         {
-            var resultJson = await _db.ListRangeAsync(key, -nStudents); // get {nStudent} last students
+            RedisValue[]? resultJson;
             var students = new List<Student>();
-            foreach (var result in resultJson)
+            try
             {
-                var student = JsonSerializer.Deserialize<Student>(result);
-                if (student != null)
-                    students.Add(student);
-            }
+                resultJson = await _db.ListRangeAsync(key, -nStudents); // get {nStudent} last students
+                if (resultJson.Length == 0) 
+                    throw new Exception("No data");
 
-            if (students.Count == 0)
-                students = SyncData();
-            
+                foreach (var result in resultJson)
+                {
+                    var student = JsonSerializer.Deserialize<Student>(result);
+                    if (student != null)
+                        students.Add(student);
+                }
+            }
+            catch (Exception ex)
+            {
+                students = SyncData(); // get data from SQL Server and transfer it to redis when there is no data or timeout when using Redis
+            }
             return students;
         }
 
@@ -49,8 +56,15 @@ namespace BaseProject.Services
 
         public async Task AddStudent(Student student)
         {
-            var jsonStudent = JsonSerializer.Serialize(student);
-            await _db.ListLeftPushAsync(key, jsonStudent);
+            try
+            {
+                var jsonStudent = JsonSerializer.Serialize(student);
+                await _db.ListLeftPushAsync(key, jsonStudent);
+            }
+            catch (Exception ex)
+            {
+                // should handle exception later
+            }
         }
 
         public List<Student> SyncData()
@@ -60,5 +74,6 @@ namespace BaseProject.Services
                 AddStudent(student);
             return students;
         }
+
     }
 }
