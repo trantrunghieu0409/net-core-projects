@@ -2,24 +2,9 @@
 {
     public class Student
     {
+        public int Id { get; set; }
         public string name { get; set; }
         public int score { get; set; }
-
-        public Student(string name, int score)
-        {
-            this.name = name;
-            this.score = score;
-        }
-
-        public Student()
-        {
-        }
-
-        public void set(string name, int score)
-        {
-            this.name = name;
-            this.score = score;
-        }
 
         public override string ToString()
         {
