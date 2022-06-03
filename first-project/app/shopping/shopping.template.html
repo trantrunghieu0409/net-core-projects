@@ -6,7 +6,7 @@
     <div class="list-group">
       <li ng-repeat="item in shopping_items" class="list-group-item">
         
-        <div class="d-flex justify-content-between" ng-show="!editingItem">
+        <div class="d-flex justify-content-between" ng-show="!item.editingItem">
           <div ng-dblclick="editItem($index)">
             <input type="checkbox" ng-model="item.isComplete">
             <label ng-class="{completed: item.isComplete}" >{{item.name}}</label>  
@@ -17,7 +17,7 @@
         </div>
 
         <div>
-          <input ng-show="editingItem" ng-model="item.name" ng-blur="editItemComplete($index)">
+          <input ng-show="item.editingItem" ng-model="item.name" ng-blur="editItemComplete($index)">
         </div>
         
       </li>

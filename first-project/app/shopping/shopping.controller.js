@@ -9,7 +9,8 @@ app.controller("shoppingCtrl", function($scope, $http) {
         if ($scope.newItem && !$scope.shopping_items.some(e=> e.name == $scope.newItem)) {
             var item = {
                 name: $scope.newItem,
-                isComplete: false
+                isComplete: false,
+                editingItem: false
             }
             $scope.shopping_items.push(item);
             $scope.newItem = ""; // reset input to blank 
@@ -24,11 +25,10 @@ app.controller("shoppingCtrl", function($scope, $http) {
         $scope.shopping_items.splice(x, 1);
     }
 
-    $scope.editingItem = false;
     $scope.editItem = function(index) {
-        $scope.editingItem = true;
+        $scope.shopping_items[index].editingItem = true;
     }
-    $scope.editItemComplete = function() {
-        $scope.editingItem = false;
+    $scope.editItemComplete = function(index) {
+        $scope.shopping_items[index].editingItem = false;
     }
 });
