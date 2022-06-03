@@ -1,0 +1,26 @@
+<div class="card" style="width:18rem;" ng-controller="shoppingCtrl">
+  <div class="card-header">
+      <h5 class="mx-3">My Shopping List</h5>
+  </div>
+  <div class="card-body">
+    <div class="list-group">
+      <li ng-repeat="item in shopping_items" class="list-group-item d-flex justify-content-between">
+        <div>
+          {{item}}  
+        </div>
+        <div><i class="fa fa-close" aria-hidden="true" ng-click="removeItem($index)" ></i></div>
+      </li>
+    </div>
+  </div>
+  <div class="card-footer container-fluid">
+    <div class="row"> 
+      <div class="col-8">
+        <input class="form-control" placeholder="Add shopping items here" ng-model="newItem" required name="inputNewItem">
+      </div>
+      <div class="col-1">
+        <button class="btn btn-success" ng-click="addItem()">Add</button>
+      </div>
+      <span style="color: red">{{error_text}}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "name": "first-project",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "scripts": {
+    "start": "http-server ./app -a localhost -p 8000 -c-1"
+  }
+}
