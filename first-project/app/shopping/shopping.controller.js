@@ -6,8 +6,12 @@ app.controller("shoppingCtrl", function($scope, $http) {
 
     $scope.addItem = function() {
         $scope.error_text = "";
-        if ($scope.newItem && !$scope.shopping_items.includes($scope.newItem)) {
-            $scope.shopping_items.push($scope.newItem);
+        if ($scope.newItem && !$scope.shopping_items.some(e=> e.name == $scope.newItem)) {
+            var item = {
+                name: $scope.newItem,
+                isComplete: false
+            }
+            $scope.shopping_items.push(item);
             $scope.newItem = ""; // reset input to blank 
         }
         else {
@@ -18,5 +22,13 @@ app.controller("shoppingCtrl", function($scope, $http) {
     $scope.removeItem = function(x) {
         $scope.error_text = "";
         $scope.shopping_items.splice(x, 1);
+    }
+
+    $scope.editingItem = false;
+    $scope.editItem = function(index) {
+        $scope.editingItem = true;
+    }
+    $scope.editItemComplete = function() {
+        $scope.editingItem = false;
     }
 });

@@ -1,5 +1,11 @@
 [
-    "Milk",
-    "Bread",
-    "Cheese"
+    {
+        "name":"Milk"
+    },
+    {
+        "name":"Bread"
+    },
+    {
+        "name":"Cheese"
+    }
 ]

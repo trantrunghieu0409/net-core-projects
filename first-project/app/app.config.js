@@ -1,7 +1,7 @@
 app.config(function($routeProvider) {
     $routeProvider
     .when('/', {
-        template: '<p>Choose an app above to start demo</p>'
+        template: '<p>Nothing here yet!</p>'
     })
     .when('/shopping', {
         templateUrl: 'shopping/shopping.template.html',

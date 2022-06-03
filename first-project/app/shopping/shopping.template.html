@@ -1,14 +1,25 @@
-<div class="card" style="width:18rem;" ng-controller="shoppingCtrl">
+<div id="shopping-list" class="card" style="width:18rem;" ng-controller="shoppingCtrl">
   <div class="card-header">
       <h5 class="mx-3">My Shopping List</h5>
   </div>
   <div class="card-body">
     <div class="list-group">
-      <li ng-repeat="item in shopping_items" class="list-group-item d-flex justify-content-between">
-        <div>
-          {{item}}  
+      <li ng-repeat="item in shopping_items" class="list-group-item">
+        
+        <div class="d-flex justify-content-between" ng-show="!editingItem">
+          <div ng-dblclick="editItem($index)">
+            <input type="checkbox" ng-model="item.isComplete">
+            <label ng-class="{completed: item.isComplete}" >{{item.name}}</label>  
+          </div>
+          <div>
+            <i class="fa fa-close" aria-hidden="true" ng-click="removeItem($index)" ></i>
+          </div>
         </div>
-        <div><i class="fa fa-close" aria-hidden="true" ng-click="removeItem($index)" ></i></div>
+
+        <div>
+          <input ng-show="editingItem" ng-model="item.name" ng-blur="editItemComplete($index)">
+        </div>
+        
       </li>
     </div>
   </div>

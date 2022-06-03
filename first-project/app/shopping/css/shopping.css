@@ -1,0 +1,4 @@
+#shopping-list li label.completed {
+    color: gray;
+    text-decoration: line-through;
+}
