@@ -1,5 +1,3 @@
-# net-core-projects
-
 # Client-side AngularJS application
 A small website contains many mini-projects.
 This website is built using HTML/CSS, JavaScript, Bootstrap 5, AngularJS, NodeJS (Http-server).
@@ -11,4 +9,3 @@ This website is built using HTML/CSS, JavaScript, Bootstrap 5, AngularJS, NodeJS
 
 Current avaiable projects:
 - Shopping list
-- ...
