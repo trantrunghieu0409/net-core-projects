@@ -1,4 +1,4 @@
-app.controller("shoppingCtrl", function($scope, $http) {
+angular.module(MODULE_NAME).controller("shoppingCtrl", function($scope, $http) {
     var url = './shopping/data.json';
     $http.get(url).then(function(response) {
         $scope.shopping_items = response.data;
