@@ -5,7 +5,7 @@ angular.module(MODULE_NAME)
         link: function(scope, element) {
             var distX = 0, distY = 0, prevX = 0, prevY = 0;
             element.on('mousedown', dragstart);
-
+            
             function dragstart(e) {
                 console.log("drag start");
                 e = e || $window.event;
@@ -13,11 +13,17 @@ angular.module(MODULE_NAME)
 
                 prevX = e.clientX;
                 prevY = e.clientY;
-
-                element.on('mousemove', dragover); 
-                element.on('mouseup', dragend); 
+                
+                console.log(element.parent());
+                
+                
+                element.on('touched mousemove', dragover); 
+                element.on('untouched mouseup', dragend); 
             }
-            
+            console.log(element.prop('offsetLeft'));
+            console.log(element.prop('offsetTop'));
+           // let index = element.parent().find(element[0]);
+           // console.log(index);
 
             function dragover(e) {
                 console.log("dragging");
@@ -35,14 +41,14 @@ angular.module(MODULE_NAME)
                 element.css('z-index', 10);
                 element.css('cursor', 'move');
                 element.css('left' , (element.prop('offsetLeft') + distX) + "px");
-                element.css('top' , (element.prop('offsetTop') + distY)+ "px");
+                element.css('top' , (element.prop('offsetTop')  + distY)+ "px");
 
                 $rootScope.$broadcast('dragover', ondragover());
 
                 function ondragover() {
                     return {x: e.screenX, y: e.screenY};
                 }
-
+                
             }
             
             function dragend(e) {
@@ -55,9 +61,28 @@ angular.module(MODULE_NAME)
                     return element;
                 }
 
+                element.css('display', 'hide');
                 element.off('mousemove', dragover);
                 element.off('mouseup', dragend);
             }
+            console.log(element.parent())
+            $rootScope.$on('success', function(e, mass) {
+                if (element == mass) {
+                    element.parent().parent()[0].removeChild(element.parent()[0]);
+                }
+            });
+            $rootScope.$on('fail', function(e, mass) {
+                if (element == mass) {
+                    element.css('position', '');
+                    element.css('width', '');
+
+                    element.css('z-index', '');
+                    element.css('cursor', '');
+                    element.css('left' , "");
+                    element.css('top' , "");
+
+                }
+            });
         }    
     }
     }])
@@ -69,16 +94,6 @@ angular.module(MODULE_NAME)
                 let isInside = false;
 
                 console.log(el.left, el.right, el.bottom, el.top);
-                element.on('mouseover', dropstart);
-
-                function dropstart(e) {
-                    e = e || $window.event;
-                    e.preventDefault();
-                    
-                    console.log(e.clientX);
-                    console.log('drop start');
-                }
-
 
                 function insideElement(x, y) {
                     return (x >= el.left && x <= el.right && y >= el.top && y <= el.bottom)
@@ -92,9 +107,8 @@ angular.module(MODULE_NAME)
                         element.addClass('dragover');
                     }
                     else {
-                        element.removeClass('dragover')
-                        element.addClass('undrag')
-
+                        element.removeClass('dragover');
+                        element.addClass('undrag');
                     }
                 }
                 $rootScope.$on('dragend', function(e, mass) {
@@ -103,9 +117,21 @@ angular.module(MODULE_NAME)
                         mass.css('top', "");
                         mass.css('z-index', "");
                         mass.css('position', 'relative');
-                        element[0].firstElementChild.appendChild(mass[0]);
+                        element[0].firstElementChild.appendChild(cloneElement(mass)[0]);
+                        $rootScope.$broadcast('success', mass);
+
+                        element.removeClass('dragover');
+                        element.addClass('undrag');
                     } 
+                    else {
+                        $rootScope.$broadcast('fail', mass);
+                    }
                 });
+
+                function cloneElement(ele) {
+                    var cloneEle = ele.clone();
+                    return cloneEle;
+                }
             }
         }
         

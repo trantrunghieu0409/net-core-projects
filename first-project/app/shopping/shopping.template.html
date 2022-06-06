@@ -6,7 +6,8 @@
       </div>
       <div class="card-body">
         <div class="list-group" ng-drop>
-          <div ng-repeat="item in shopping_items" class="list-group-item" ng-drag>
+          <div ng-repeat="item in shopping_items">
+            <div  class="list-group-item" ng-drag>
               <div class="d-flex justify-content-between" ng-show="!item.editingItem">
                 <div ng-dblclick="editItem($index)">
                 <input type="checkbox" ng-model="item.isComplete">
@@ -20,6 +21,7 @@
                 <input ng-show="item.editingItem" ng-model="item.name" ng-blur="editItemComplete($index)">
               </div>
             </div>
+          </div>
         </div>
       </div>
       <div class="card-footer">

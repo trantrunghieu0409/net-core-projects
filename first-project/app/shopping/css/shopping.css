@@ -1,4 +1,4 @@
-#shopping-list li label.completed {
+#shopping-list li .completed {
     color: gray;
     text-decoration: line-through;
 }
@@ -10,7 +10,7 @@
 }
 
 #shopping-list .dragging-item {
-    
+    opacity: 0.5;
 }
 
 #shopping-list .dragover {
