@@ -1,6 +1,6 @@
 angular.module(MODULE_NAME).controller("chartCtrl", function($scope, $http) {
     $scope.chartTypes = [{index: 0, title:"Line Chart"}, {index: 1, title: "Pie Chart"}];
-    $scope.selectedChart = $scope.chartTypes[0];
+    $scope.selectedChart = $scope.chartTypes[1];
 
     // LINE CHART
     var dataLineChartUrl = "chart/line-chart/data.json";

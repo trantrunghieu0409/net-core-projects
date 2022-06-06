@@ -6,7 +6,7 @@ angular.module(MODULE_NAME).config(['$routeProvider',
     })
     .when('/shopping', {
         templateUrl: 'shopping/shopping.template.html',
-      //  controller: 'shoppingCtrl'
+        controller: 'shoppingCtrl'
     })
     .when('/chart', {
         templateUrl: 'chart/chart.template.html',

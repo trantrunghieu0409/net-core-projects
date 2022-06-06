@@ -2,3 +2,20 @@
     color: gray;
     text-decoration: line-through;
 }
+
+#shopping-list .box {
+    border-style: dotted;
+    height: 200px;
+    width: 200px;
+}
+
+#shopping-list .dragging-item {
+    
+}
+
+#shopping-list .dragover {
+    border-color: red;
+}
+#shopping-list .dragdown {
+    border-color: black;
+}

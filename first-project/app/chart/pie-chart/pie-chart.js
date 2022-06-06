@@ -1,7 +1,7 @@
-angular.module(MODULE_NAME).directives('piechart', function() {
+angular.module(MODULE_NAME).directive('piechart', function() {
     return {
-        restrict: 'E',
-        template: '<div></div>',
+        restrict:'E',
+        template:'<div id="containter"></div>',
         transclude:true,
         replace:true,
         scope: '=',
@@ -14,7 +14,7 @@ angular.module(MODULE_NAME).directives('piechart', function() {
                   type: 'pie'
                 },
                 title: {
-                  text: attrs.title
+                  text: 'Browser market shares in January, 2018'
                 },
                 tooltip: {
                   pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

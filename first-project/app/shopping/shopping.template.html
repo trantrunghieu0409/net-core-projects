@@ -1,37 +1,50 @@
-<div id="shopping-list" class="card" style="width:18rem;" ng-controller="shoppingCtrl">
-  <div class="card-header">
-      <h5 class="mx-3">My Shopping List</h5>
-  </div>
-  <div class="card-body">
-    <div class="list-group">
-      <li ng-repeat="item in shopping_items" class="list-group-item">
-        
-        <div class="d-flex justify-content-between" ng-show="!item.editingItem">
-          <div ng-dblclick="editItem($index)">
-            <input type="checkbox" ng-model="item.isComplete">
-            <label ng-class="{completed: item.isComplete}" >{{item.name}}</label>  
-          </div>
-          <div>
-            <i class="fa fa-close" aria-hidden="true" ng-click="removeItem($index)" ></i>
-          </div>
+<div id="shopping-list" class="container" ng-controller="shoppingCtrl">
+  <div class="row">
+    <div class="col-auto card">
+      <div class="card-header">
+        <h5 class="mx-3">My Shopping List</h5>
+      </div>
+      <div class="card-body">
+        <div class="list-group" ng-drop>
+          <div ng-repeat="item in shopping_items" class="list-group-item" ng-drag>
+              <div class="d-flex justify-content-between" ng-show="!item.editingItem">
+                <div ng-dblclick="editItem($index)">
+                <input type="checkbox" ng-model="item.isComplete">
+                <label ng-class="{completed: item.isComplete}" >{{item.name}}</label>  
+                </div>
+                <div>
+                  <i class="fa fa-close" aria-hidden="true" ng-click="removeItem($index)" ></i>
+                </div>
+              </div>
+              <div>
+                <input ng-show="item.editingItem" ng-model="item.name" ng-blur="editItemComplete($index)">
+              </div>
+            </div>
         </div>
-
-        <div>
-          <input ng-show="item.editingItem" ng-model="item.name" ng-blur="editItemComplete($index)">
+      </div>
+      <div class="card-footer">
+        <div class="row"> 
+          <div class="col-8">
+            <input class="form-control" placeholder="Add shopping items here" ng-model="newItem" required name="inputNewItem">
+          </div>
+          <div class="col-1">
+            <button class="btn btn-success" ng-click="addItem()">Add</button>
+          </div>
+          <span style="color: red">{{error_text}}</span>
         </div>
-        
-      </li>
+      </div>
     </div>
-  </div>
-  <div class="card-footer container-fluid">
-    <div class="row"> 
-      <div class="col-8">
-        <input class="form-control" placeholder="Add shopping items here" ng-model="newItem" required name="inputNewItem">
+    <div class="card" style="width:18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Done</h5>
+        <h6 class="card-subtitle mb-2 text-muted ">Items you've bought</h6>
+        <div class="box" ng-drop>
+          <div class="list-group mx-1">
+           
+          </div>
+        </div>
       </div>
-      <div class="col-1">
-        <button class="btn btn-success" ng-click="addItem()">Add</button>
-      </div>
-      <span style="color: red">{{error_text}}</span>
     </div>
   </div>
 </div>
+
