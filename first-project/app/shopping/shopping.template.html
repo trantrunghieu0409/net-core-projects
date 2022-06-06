@@ -4,10 +4,10 @@
       <div class="card-header">
         <h5 class="mx-3">My Shopping List</h5>
       </div>
-      <div class="card-body">
-        <div class="list-group" ng-drop>
+      <div class="card-body" ng-drop>
+        <div class="list-group">
           <div ng-repeat="item in shopping_items">
-            <div  class="list-group-item" ng-drag>
+            <div  class="list-group-item" ng-drag ng-drag-success="onDragSuccess($data, $event)" ng-drag-data="{{item}}">
               <div class="d-flex justify-content-between" ng-show="!item.editingItem">
                 <div ng-dblclick="editItem($index)">
                 <input type="checkbox" ng-model="item.isComplete">

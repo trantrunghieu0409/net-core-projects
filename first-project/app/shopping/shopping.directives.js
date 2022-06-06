@@ -1,10 +1,10 @@
 angular.module(MODULE_NAME)
-    .directive("ngDrag", ["$rootScope", "$location", "$window", "$document", function($rootScope, $location, $window, $document) {
+    .directive("ngDrag", ["$rootScope", "$location", "$window", "$document", "$parse", function($rootScope, $location, $window, $document, $parse) {
     return {
         restrict: 'A',
-        link: function(scope, element) {
+        link: function(scope, element, attrs) {
             var distX = 0, distY = 0, prevX = 0, prevY = 0;
-            element.on('mousedown', dragstart);
+            element.on('touchstart mousedown', dragstart);
             
             function dragstart(e) {
                 console.log("drag start");
@@ -17,8 +17,8 @@ angular.module(MODULE_NAME)
                 console.log(element.parent());
                 
                 
-                element.on('touched mousemove', dragover); 
-                element.on('untouched mouseup', dragend); 
+                element.on('touchmove mousemove', dragover); 
+                element.on('touchend mouseup', dragend); 
             }
             console.log(element.prop('offsetLeft'));
             console.log(element.prop('offsetTop'));
@@ -43,6 +43,8 @@ angular.module(MODULE_NAME)
                 element.css('left' , (element.prop('offsetLeft') + distX) + "px");
                 element.css('top' , (element.prop('offsetTop')  + distY)+ "px");
 
+                element.css('opacity', '0.8');
+
                 $rootScope.$broadcast('dragover', ondragover());
 
                 function ondragover() {
@@ -53,6 +55,7 @@ angular.module(MODULE_NAME)
             
             function dragend(e) {
                 console.log("drag end");
+                element.css('opacity', '1');
 
                 //element.css('position', 'relative');
                 $rootScope.$broadcast('dragend', ondragend());
@@ -61,15 +64,23 @@ angular.module(MODULE_NAME)
                     return element;
                 }
 
-                element.css('display', 'hide');
                 element.off('mousemove', dragover);
                 element.off('mouseup', dragend);
             }
-            console.log(element.parent())
+            var onDragSuccessCallback = $parse(attrs.ngDragSuccess) || null;
+            var _data = $parse(attrs.ngDragData) || null;
+
             $rootScope.$on('success', function(e, mass) {
                 if (element == mass) {
                     element.parent().parent()[0].removeChild(element.parent()[0]);
+
+                    if (!onDragSuccessCallback )return;
+
+                    scope.$apply(function () {
+                        onDragSuccessCallback(scope, {$data: _data, $event: e});
+                    });
                 }
+                
             });
             $rootScope.$on('fail', function(e, mass) {
                 if (element == mass) {
@@ -80,7 +91,6 @@ angular.module(MODULE_NAME)
                     element.css('cursor', '');
                     element.css('left' , "");
                     element.css('top' , "");
-
                 }
             });
         }    
@@ -96,6 +106,7 @@ angular.module(MODULE_NAME)
                 console.log(el.left, el.right, el.bottom, el.top);
 
                 function insideElement(x, y) {
+                    el = element[0].getBoundingClientRect();
                     return (x >= el.left && x <= el.right && y >= el.top && y <= el.bottom)
                 }
 
@@ -117,6 +128,7 @@ angular.module(MODULE_NAME)
                         mass.css('top', "");
                         mass.css('z-index', "");
                         mass.css('position', 'relative');
+                        
                         element[0].firstElementChild.appendChild(cloneElement(mass)[0]);
                         $rootScope.$broadcast('success', mass);
 

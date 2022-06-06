@@ -2,11 +2,15 @@
     color: gray;
     text-decoration: line-through;
 }
+#shopping-list .card-body {
+    border-style: dotted;
 
+}
 #shopping-list .box {
     border-style: dotted;
     height: 200px;
     width: 200px;
+    overflow-y: auto;
 }
 
 #shopping-list .dragging-item {

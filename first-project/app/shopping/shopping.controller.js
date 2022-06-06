@@ -21,8 +21,10 @@ angular.module(MODULE_NAME).controller("shoppingCtrl", function($scope, $http) {
     }
 
     $scope.removeItem = function(x) {
-        $scope.error_text = "";
-        $scope.shopping_items.splice(x, 1);
+        if (x >= 0) {
+            $scope.error_text = "";
+            $scope.shopping_items.splice(x, 1);
+        }
     }
 
     $scope.editItem = function(index) {
@@ -30,5 +32,10 @@ angular.module(MODULE_NAME).controller("shoppingCtrl", function($scope, $http) {
     }
     $scope.editItemComplete = function(index) {
         $scope.shopping_items[index].editingItem = false;
+    }
+
+    $scope.onDragSuccess = function(data, event) {
+        var index = $scope.shopping_items.findIndex(element => element.name == data().name);
+        $scope.removeItem(index);
     }
 });
