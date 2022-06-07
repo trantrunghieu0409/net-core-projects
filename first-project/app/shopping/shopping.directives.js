@@ -20,10 +20,6 @@ angular.module(MODULE_NAME)
                 element.on('touchmove mousemove', dragover); 
                 element.on('touchend mouseup', dragend); 
             }
-            console.log(element.prop('offsetLeft'));
-            console.log(element.prop('offsetTop'));
-           // let index = element.parent().find(element[0]);
-           // console.log(index);
 
             function dragover(e) {
                 console.log("dragging");
@@ -48,7 +44,7 @@ angular.module(MODULE_NAME)
                 $rootScope.$broadcast('dragover', ondragover());
 
                 function ondragover() {
-                    return {x: e.screenX, y: e.screenY};
+                    return {item: element, x: e.screenX, y: e.screenY};
                 }
                 
             }
@@ -72,7 +68,7 @@ angular.module(MODULE_NAME)
 
             $rootScope.$on('success', function(e, mass) {
                 if (element == mass) {
-                    element.parent().parent()[0].removeChild(element.parent()[0]);
+                  //  element.parent().parent()[0].removeChild(element.parent()[0]);
 
                     if (!onDragSuccessCallback )return;
 
@@ -113,7 +109,7 @@ angular.module(MODULE_NAME)
                 $rootScope.$on('dragover', ondragover);
                 function ondragover(e, mass) {
                     isInside = insideElement(mass.x, mass.y);
-                    if (isInside) {
+                    if (isInside) {    
                         element.removeClass('undrag');
                         element.addClass('dragover');
                     }
@@ -123,13 +119,17 @@ angular.module(MODULE_NAME)
                     }
                 }
                 $rootScope.$on('dragend', function(e, mass) {
+                 //   element[0].firstElementChild.removeChild(mass);
                     if (isInside) {
                         mass.css('left', "");
                         mass.css('top', "");
                         mass.css('z-index', "");
                         mass.css('position', 'relative');
                         
-                        element[0].firstElementChild.appendChild(cloneElement(mass)[0]);
+                        var div = angular.element('<div/>');
+                        console.log(div)
+                        div.append(mass[0]);
+                        element[0].firstElementChild.appendChild(div[0]);
                         $rootScope.$broadcast('success', mass);
 
                         element.removeClass('dragover');

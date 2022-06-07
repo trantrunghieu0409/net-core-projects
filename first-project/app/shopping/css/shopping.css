@@ -1,4 +1,4 @@
-#shopping-list li .completed {
+#shopping-list .completed {
     color: gray;
     text-decoration: line-through;
 }
