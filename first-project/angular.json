@@ -101,5 +101,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "first-project"
 }
