@@ -1,6 +1,6 @@
 # Client-side Angular 13 application
 
-This website is built using HTML/CSS, JavaScript, Bootstrap 5, Angular13, TypeScript, NodeJS (Http-server).
+This website is built using HTML/CSS, JavaScript, Bootstrap 5, Angular13, TypeScript, NodeJS.
 
 ## How to start
 - Move into root using "cd first-project"
