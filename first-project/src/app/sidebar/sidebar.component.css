@@ -14,3 +14,7 @@
 .sidebar-nav .list-group {
   border: solid gray 1px;
 }
+
+.sidebar-nav .list-group-item.active {
+  background-color: aqua;
+}

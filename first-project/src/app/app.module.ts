@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateMaintainanceShiftComponent } from './create-maintainance-shift/create-maintainance-shift.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ModalComponent } from './modal/modal.component';
+import { HoverClassDirective } from './hover-class.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { CreateMaintainanceShiftComponent } from './create-maintainance-shift/cr
     SidebarComponent,
     PageNotFoundComponent,
     CreateMaintainanceShiftComponent,
+    HomepageComponent,
+    ModalComponent,
+    HoverClassDirective,
   ],
   imports: [
     BrowserModule,
