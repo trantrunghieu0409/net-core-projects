@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Attribute, Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,28 +6,10 @@ import { Attribute, Component, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private http: HttpClient) {
+  constructor() {
   }
   ngOnInit() {
   }
 
-  title = 'first-project';
 
-  months = ["JAN", "FEB", "MAR", "APR"];
-
-  isTrue = null;
-
-  clickCount = 0;
-  clickMe() {
-    this.clickCount += 1;
-  }
-
-  value=""
-  handleInput(event: Event) {
-    this.value = (event.target as HTMLInputElement).value;
-  }
-
-  handleInput1(element: HTMLInputElement) {
-    this.value = element.value;
-  }
 }
