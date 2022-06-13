@@ -11,6 +11,7 @@ import { CreateMaintainanceShiftComponent } from './create-maintainance-shift/cr
 import { HomepageComponent } from './homepage/homepage.component';
 import { ModalComponent } from './modal/modal.component';
 import { HoverClassDirective } from './hover-class.directive';
+import { ViewMaintainanceShiftComponent } from './view-maintainance-shift/view-maintainance-shift.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HoverClassDirective } from './hover-class.directive';
     HomepageComponent,
     ModalComponent,
     HoverClassDirective,
+    ViewMaintainanceShiftComponent,
   ],
   imports: [
     BrowserModule,
