@@ -1,0 +1,16 @@
+.sidebar-nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.sidebar-nav i {
+  color: rgb(53, 53, 174);
+}
+
+.sidebar-nav .list-group-item {
+  border: none;
+}
+
+.sidebar-nav .list-group {
+  border: solid gray 1px;
+}
