@@ -23,15 +23,11 @@ export class CreateMaintainanceShiftComponent implements OnInit, AfterViewInit {
         size: 'xl'
       }).result.then(
         (result) => {
-          this.router.navigateByUrl('../map').then(() => {
-            window.location.reload();
-          });
+          this.router.navigate(['/']);
         },
         (reason) => {
           // reload page after navigate to reset view
-          this.router.navigateByUrl('../map').then(() => {
-            window.location.reload();
-          });
+          this.router.navigate(['/']);
         }
       );
   }

@@ -4,6 +4,7 @@ import { CreateMaintainanceShiftComponent } from './create-maintainance-shift/cr
 import { HomepageComponent } from './homepage/homepage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PublicComponent } from './public/public.component';
+import { PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   { path: 'map', component: HomepageComponent , children: [
@@ -19,12 +20,12 @@ const routes: Routes = [
     ]
   },
   // Other routes here
-  { path: '*', redirectTo: '/map', pathMatch: 'full' },
+  { path: '', redirectTo: '/map', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
