@@ -1,5 +1,4 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,5 +10,5 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public isCollapsed = false;
 }

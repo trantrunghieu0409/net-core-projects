@@ -5,28 +5,128 @@
   </div>
   <div class="modal-body">
     <form class="container-fluid">
-      <div class="row">
-        <label for="VungMien" class="form-label col-2">Vùng miền</label>
-        <select class="form-select col-10">
-          <option selected>--chọn vùng miền --</option>
-        </select>
+      <div class="row mb-3">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="VungMien" class="form-label">Vùng miền</label>
+        </div>
+        <div class="col-9">
+          <select class="form-select col-10">
+            <option selected>--chọn vùng miền --</option>
+          </select>
+        </div>
       </div>
-      <div>
-        <label for="ChiNhanh" class="form-label">Chi nhánh</label>
-        <select class="form-select">
-          <option selected>--chọn chi nhánh --</option>
-        </select>
-      </div>
-      <div>
-        <label for="LoaiPOP" class="form-label" disabled>Loại POP</label>
-        <select class="form-select">
-          <option selected>MPOP</option>
-        </select>
-      </div>
-      <div>
-        <label for="POP" class="form-label" disabled>POP</label>
 
+      <div class="row mb-3">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="ChiNhanh" class="form-label">Chi nhánh</label>
+        </div>
+        <div class="col-9">
+          <select class="form-select">
+            <option selected>--chọn chi nhánh --</option>
+          </select>
+        </div>
+      </div>
 
+      <div class="row mb-3 d-flex justify-content-between">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="LoaiPOP" class="form-label">Loại POP</label>
+        </div>
+        <div class="col-9">
+          <select class="form-select"  disabled>
+            <option selected>MPOP</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="POP" class="form-label">POP</label>
+        </div>
+        <div class="col-9 px-4">
+          <div class="pop row d-flex justify-content-between">
+            <div class="col-6 row align-items-center">
+              <div class="text-center py-1">
+                <span>Không tìm thấy POP nào</span>
+              </div>
+              <div>
+                <button class="btn btn-secondary my-1">Thêm hết</button>
+              </div>
+            </div>
+            <div class="col-6 row align-items-center">
+              <div class="text-center py-1">
+                <span>Không có POP nào đưọc chọn</span>
+              </div>
+              <div>
+                <button class="btn btn-secondary my-1">Xóa hết</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="NVThucHien" class="form-label">NV thực hiện</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select"  disabled>
+              <option selected>Chưa chọn nhân viên</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-3">
+            <label for="LoaiBaoTri" class="form-label">Loại bảo trì</label>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-success">Định kỳ</button>
+            <button class="btn">Đột xuất</button>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="ThucHienDinhKy" class="form-label">Thực hiện định kỳ</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select"  disabled>
+              <option selected>Chưa chọn nhân viên</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="NVThucHien" class="form-label">NV thực hiện</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select"  disabled>
+              <option selected>Chưa chọn nhân viên</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="NVThucHien" class="form-label">NV thực hiện</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select"  disabled>
+              <option selected>Chưa chọn nhân viên</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="NVThucHien" class="form-label">NV thực hiện</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select"  disabled>
+              <option selected>Chưa chọn nhân viên</option>
+            </select>
+          </div>
+        </div>
       </div>
     </form>
 

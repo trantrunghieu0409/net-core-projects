@@ -10,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class CreateMaintainanceShiftComponent implements OnInit, AfterViewInit {
   @ViewChild('content') content: any;
   idModal: string = "create-maintainance-shift";
-  title: string = "Tạo ca bảo trì";
+  title: string = "Tạo list bảo trì";
 
   constructor(private modalService: NgbModal, private router: Router) { }
 

@@ -7,13 +7,11 @@
   color: rgb(53, 53, 174);
 }
 
-.sidebar-nav .list-group-item {
+.sidebar-nav a.list-group-item {
   border: none;
 }
 
-.sidebar-nav .list-group {
-  border: solid gray 1px;
-}
+
 
 .sidebar-nav .list-group-item.active {
   background-color: aqua;

@@ -1,12 +1,16 @@
-form > div {
-
-}
-
 form > div label {
   color: purple;
   text-align: right;
 }
 
 form > div > select {
-  width: 80%;
 }
+
+form .pop > div > div {
+  border: solid black 1px;
+}
+
+form .pop > div > div > button {
+  width: 100%;
+}
+

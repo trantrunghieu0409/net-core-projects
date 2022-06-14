@@ -1,21 +1,25 @@
 <div class="sidebar-nav">
-  <h5><i class="fa fa-wrench mx-2" aria-hidden="true"></i>Bảo trì đài trạm INF</h5>
-  <ul class="list-group">
-    <a [routerLink]="['create-maintainance-shift']" routerLinkActive="active" class="list-group-item" hover-class="active">
-      <i class="fa fa-calendar mx-2" aria-hidden="true"></i>
-      Tạo ca bảo trì
-    </a>
-    <a [routerLink]="['view-maintainance-shift']" routerLinkActive="active" class="list-group-item" hover-class="active">
-      <i class="fa fa-list mx-2" aria-hidden="true"></i>
-      Danh sách ca bảo trì
-    </a>
-    <a [routerLink]="['list-mail']" routerLinkActive="active" class="list-group-item" hover-class="active">
-      <i class="fa fa-envelope-o mx-2" aria-hidden="true"></i>
-      DS nhận mail bảo trì
-    </a>
-    <a [routerLink]="['report']" routerLinkActive="active" class="list-group-item" hover-class="active">
-      <i class="fa fa-bar-chart-o mx-2" aria-hidden="true"></i>
-      Thống kê báo cáo
-    </a>
-  </ul>
+  <div class="list-group">
+    <div class="list-group-item" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample"><i class="fa fa-wrench mx-2" aria-hidden="true"></i>Bảo trì đài trạm INF</div>
+
+    <ul class="list-group" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <a [routerLink]="['create-maintainance-shift']" routerLinkActive="active" class="list-group-item" hover-class="active">
+        <i class="fa fa-calendar mx-2" aria-hidden="true"></i>
+        Tạo ca bảo trì
+      </a>
+      <a [routerLink]="['view-maintainance-shift']" routerLinkActive="active" class="list-group-item" hover-class="active">
+        <i class="fa fa-list mx-2" aria-hidden="true"></i>
+        Danh sách ca bảo trì
+      </a>
+      <a [routerLink]="['list-mail']" routerLinkActive="active" class="list-group-item" hover-class="active">
+        <i class="fa fa-envelope-o mx-2" aria-hidden="true"></i>
+        DS nhận mail bảo trì
+      </a>
+      <a [routerLink]="['report']" routerLinkActive="active" class="list-group-item" hover-class="active">
+        <i class="fa fa-bar-chart-o mx-2" aria-hidden="true"></i>
+        Thống kê báo cáo
+      </a>
+    </ul>
+  </div>
 </div>
