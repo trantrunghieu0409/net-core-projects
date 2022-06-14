@@ -1,0 +1,12 @@
+form > div {
+
+}
+
+form > div label {
+  color: purple;
+  text-align: right;
+}
+
+form > div > select {
+  width: 80%;
+}

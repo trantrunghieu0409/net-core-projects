@@ -9,9 +9,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateMaintainanceShiftComponent } from './create-maintainance-shift/create-maintainance-shift.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { ModalComponent } from './modal/modal.component';
 import { HoverClassDirective } from './hover-class.directive';
 import { ViewMaintainanceShiftComponent } from './view-maintainance-shift/view-maintainance-shift.component';
+import { PublicComponent } from './public/public.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,9 @@ import { ViewMaintainanceShiftComponent } from './view-maintainance-shift/view-m
     PageNotFoundComponent,
     CreateMaintainanceShiftComponent,
     HomepageComponent,
-    ModalComponent,
     HoverClassDirective,
     ViewMaintainanceShiftComponent,
+    PublicComponent,
   ],
   imports: [
     BrowserModule,

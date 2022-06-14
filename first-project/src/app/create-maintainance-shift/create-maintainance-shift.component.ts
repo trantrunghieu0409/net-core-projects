@@ -20,7 +20,7 @@ export class CreateMaintainanceShiftComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.modalService.open(this.content,
       {
-        size: 'lg'
+        size: 'xl'
       }).result.then(
         (result) => {
           this.router.navigateByUrl('../map').then(() => {

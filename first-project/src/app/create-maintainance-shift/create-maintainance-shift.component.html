@@ -4,7 +4,32 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
   </div>
   <div class="modal-body">
-    <span>Create new shift works!</span>
+    <form class="container-fluid">
+      <div class="row">
+        <label for="VungMien" class="form-label col-2">Vùng miền</label>
+        <select class="form-select col-10">
+          <option selected>--chọn vùng miền --</option>
+        </select>
+      </div>
+      <div>
+        <label for="ChiNhanh" class="form-label">Chi nhánh</label>
+        <select class="form-select">
+          <option selected>--chọn chi nhánh --</option>
+        </select>
+      </div>
+      <div>
+        <label for="LoaiPOP" class="form-label" disabled>Loại POP</label>
+        <select class="form-select">
+          <option selected>MPOP</option>
+        </select>
+      </div>
+      <div>
+        <label for="POP" class="form-label" disabled>POP</label>
+
+
+      </div>
+    </form>
+
   </div>
 </ng-template>
 
