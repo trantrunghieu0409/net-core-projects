@@ -1,0 +1,36 @@
+<div class="row mb-3 d-flex justify-content-between">
+  <div class="d-flex" [ngClass]="{'col-3': inline,  'flex-row-reverse': inline}">
+    <label for="LoaiPOP" class="form-label">Loại POP</label>
+  </div>
+  <div [ngClass]="{'col-9': inline}">
+    <select class="form-select"  disabled>
+      <option selected>MPOP</option>
+    </select>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="d-flex" [ngClass]="{'col-3': inline,  'flex-row-reverse': inline}">
+    <label for="POP" class="form-label">POP</label>
+  </div>
+  <div [ngClass]="{'col-9': inline, 'px-4': inline}">
+    <div class="pop row d-flex justify-content-between">
+      <div class="row align-items-center" [ngClass]="{'col-6': inline, 'mb-3': !inline}">
+        <div class="text-center py-1">
+          <span>Không tìm thấy POP nào</span>
+        </div>
+        <div>
+          <button class="btn btn-secondary my-1">Thêm hết</button>
+        </div>
+      </div>
+      <div class="row align-items-center" [ngClass]="{'col-6': inline}">
+        <div class="text-center py-1">
+          <span>Không có POP nào đưọc chọn</span>
+        </div>
+        <div>
+          <button class="btn btn-secondary my-1">Xóa hết</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

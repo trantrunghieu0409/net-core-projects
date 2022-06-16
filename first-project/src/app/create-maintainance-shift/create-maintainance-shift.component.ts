@@ -12,7 +12,7 @@ export class CreateMaintainanceShiftComponent implements OnInit, AfterViewInit {
   @ViewChild('content') content: any;
   idModal: string = "create-maintainance-shift";
   title: string = "Tạo list bảo trì";
-  LoaiBaoTri: number = 0;
+
   constructor(private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {

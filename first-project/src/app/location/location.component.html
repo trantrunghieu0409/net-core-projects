@@ -1,0 +1,21 @@
+<div class="row mb-3">
+  <div class="d-flex" [ngClass]="{'col-3': inline,  'flex-row-reverse': inline}">
+    <label for="VungMien" class="form-label">Vùng miền</label>
+  </div>
+  <div [ngClass]="{'col-9': inline}">
+    <select class="form-select">
+      <option selected>--chọn vùng miền --</option>
+    </select>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="d-flex" [ngClass]="{'col-3': inline,  'flex-row-reverse': inline}">
+    <label for="ChiNhanh" class="form-label">Chi nhánh</label>
+  </div>
+  <div [ngClass]="{'col-9': inline}">
+    <select class="form-select">
+      <option selected>--chọn chi nhánh --</option>
+    </select>
+  </div>
+</div>

@@ -5,11 +5,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PublicComponent } from './public/public.component';
 import { PreloadAllModules } from '@angular/router';
+import { ViewMaintainanceShiftComponent } from './view-maintainance-shift/view-maintainance-shift.component';
 
 const routes: Routes = [
   { path: 'map', component: HomepageComponent , children: [
     {
       path: 'create-maintainance-shift', component: CreateMaintainanceShiftComponent
+    },
+    {
+      path: 'view-maintainance-shift', component: ViewMaintainanceShiftComponent
     }
   ]},
   {

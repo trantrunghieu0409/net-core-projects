@@ -1,0 +1,89 @@
+<div class="row my-3">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="NVThucHien" class="form-label">NV thực hiện</label>
+  </div>
+  <div class="col-auto">
+    <select class="form-select"  disabled>
+      <option selected>Chưa chọn nhân viên</option>
+    </select>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="LoaiBaoTri" class="form-label">Loại bảo trì</label>
+  </div>
+  <div class="col-auto">
+    <button class="btn" [ngClass]="{'btn-success' : LoaiBaoTri === 0}" (click)="LoaiBaoTri = 0">Định kỳ</button>
+    <button class="btn" [ngClass]="{'btn-danger' : LoaiBaoTri === 1}" (click)="LoaiBaoTri = 1">Đột xuất</button>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="ThucHienDinhKy" class="form-label">Thực hiện định kỳ</label>
+  </div>
+  <div class="col-9">
+    <select class="form-select">
+      <option selected>1 tuần</option>
+    </select>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="NgayBaoTri" class="form-label">Ngày bắt đầu bảo trì</label>
+  </div>
+  <div class="col-9">
+    <div class="input-group">
+      <input type="text" class="form-control" ngbDatepicker #d="ngbDatepicker" placeholder="-- chọn ngày bảo trì --"
+      placement="left" [positionTarget]="buttonDate"/>
+      <button #buttonDate class="btn btn-outline-secondary input-group-text" (click)="d.toggle()" type="button"
+     ><i class="fa fa-calendar" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3" [hidden]="LoaiBaoTri !== 1">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="NgayDotXuat" class="form-label">Ngày thực hiện đột xuất</label>
+  </div>
+  <div class="col-9">
+    <div class="input-group">
+      <input type="text" class="form-control" ngbDatepicker #sudden="ngbDatepicker" placeholder="-- chọn ngày thực hiện đột xuất --"
+      placement="left" [positionTarget]="buttonDateSudden"/>
+      <button #buttonDateSudden class="btn btn-outline-secondary input-group-text" (click)="sudden.toggle()" type="button"
+     ><i class="fa fa-calendar" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="DeadlineBaoTri" class="form-label">Deadline bảo trì</label>
+  </div>
+  <div class="col-9">
+    <select class="form-select">
+      <option selected>1 ngày</option>
+    </select>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="GhiChu" class="form-label">Ghi chú</label>
+  </div>
+  <div class="col-9">
+    <input class="form-control" placeholder="Ghi chú">
+  </div>
+</div>
+
+
+<div class="row mb-3">
+  <div class="col-3 d-flex flex-row-reverse">
+    <label for="NguoiYeuCau" class="form-label">Người yêu cầu</label>
+  </div>
+  <div class="col-9">
+    <input class="form-control" value="tester" disabled>
+  </div>
+</div>

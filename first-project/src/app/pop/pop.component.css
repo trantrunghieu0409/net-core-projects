@@ -1,12 +1,7 @@
-.modal-header {
-  background-color: greenyellow;
-}
-
 div label {
   color: purple;
   text-align: right;
 }
-
 .pop > div > div {
   border: solid gray 1px;
 }

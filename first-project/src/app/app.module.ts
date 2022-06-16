@@ -12,6 +12,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HoverClassDirective } from './hover-class.directive';
 import { ViewMaintainanceShiftComponent } from './view-maintainance-shift/view-maintainance-shift.component';
 import { PublicComponent } from './public/public.component';
+import { LocationComponent } from './location/location.component';
+import { PopComponent } from './pop/pop.component';
+import { MaintainanceShiftComponent } from './maintainance-shift/maintainance-shift.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { PublicComponent } from './public/public.component';
     HoverClassDirective,
     ViewMaintainanceShiftComponent,
     PublicComponent,
+    LocationComponent,
+    PopComponent,
+    MaintainanceShiftComponent,
   ],
   imports: [
     BrowserModule,
