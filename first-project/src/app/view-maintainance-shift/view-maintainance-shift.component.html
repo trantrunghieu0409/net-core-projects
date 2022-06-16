@@ -1,1 +1,140 @@
-<p>view-maintainance-shift works!</p>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <div class="d-flex flex-fill justify-content-center text-success">
+      <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+    </div>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+  </div>
+  <div class="modal-body">
+    <form class="container-fluid">
+      <div class="row mb-3">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="VungMien" class="form-label">Vùng miền</label>
+        </div>
+        <div class="col-9">
+          <select class="form-select">
+            <option selected>--chọn vùng miền --</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="ChiNhanh" class="form-label">Chi nhánh</label>
+        </div>
+        <div class="col-9">
+          <select class="form-select">
+            <option selected>--chọn chi nhánh --</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3 d-flex justify-content-between">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="LoaiPOP" class="form-label">Loại POP</label>
+        </div>
+        <div class="col-9">
+          <select class="form-select"  disabled>
+            <option selected>MPOP</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-3 d-flex flex-row-reverse">
+          <label for="POP" class="form-label">POP</label>
+        </div>
+        <div class="col-9 px-4">
+          <div class="pop row d-flex justify-content-between">
+            <div class="col-6 row align-items-center">
+              <div class="text-center py-1">
+                <span>Không tìm thấy POP nào</span>
+              </div>
+              <div>
+                <button class="btn btn-secondary my-1">Thêm hết</button>
+              </div>
+            </div>
+            <div class="col-6 row align-items-center">
+              <div class="text-center py-1">
+                <span>Không có POP nào đưọc chọn</span>
+              </div>
+              <div>
+                <button class="btn btn-secondary my-1">Xóa hết</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="NVThucHien" class="form-label">NV thực hiện</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-select"  disabled>
+              <option selected>Chưa chọn nhân viên</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="ThucHienDinhKy" class="form-label">Thực hiện định kỳ</label>
+          </div>
+          <div class="col-9">
+            <select class="form-select">
+              <option selected>1 tuần</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="NgayBaoTri" class="form-label">Ngày bắt đầu bảo trì</label>
+          </div>
+          <div class="col-9">
+            <div class="input-group">
+              <input type="text" class="form-control" ngbDatepicker #d="ngbDatepicker" placeholder="-- chọn ngày bảo trì --"
+              placement="left" [positionTarget]="buttonDate"/>
+              <button #buttonDate class="btn btn-outline-secondary input-group-text" (click)="d.toggle()" type="button"
+             ><i class="fa fa-calendar" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="DeadlineBaoTri" class="form-label">Deadline bảo trì</label>
+          </div>
+          <div class="col-9">
+            <select class="form-select">
+              <option selected>1 ngày</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="GhiChu" class="form-label">Ghi chú</label>
+          </div>
+          <div class="col-9">
+            <input class="form-control" placeholder="Ghi chú">
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="col-3 d-flex flex-row-reverse">
+            <label for="NguoiYeuCau" class="form-label">Người yêu cầu</label>
+          </div>
+          <div class="col-9">
+            <input class="form-control" value="tester" disabled>
+          </div>
+        </div>
+
+      </div>
+      <button class="btn btn-success"><i class="fa fa-list" aria-hidden="true"></i> Tạo list</button>
+    </form>
+
+  </div>
+</ng-template>
+

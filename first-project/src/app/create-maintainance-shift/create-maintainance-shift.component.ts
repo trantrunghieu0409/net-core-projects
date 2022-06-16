@@ -1,6 +1,7 @@
 import { AfterContentInit, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-create-maintainance-shift',
@@ -11,7 +12,7 @@ export class CreateMaintainanceShiftComponent implements OnInit, AfterViewInit {
   @ViewChild('content') content: any;
   idModal: string = "create-maintainance-shift";
   title: string = "Tạo list bảo trì";
-
+  LoaiBaoTri: number = 0;
   constructor(private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {
