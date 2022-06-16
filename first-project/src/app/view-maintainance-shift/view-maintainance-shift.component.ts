@@ -20,7 +20,8 @@ export class ViewMaintainanceShiftComponent implements OnInit {
   ngAfterViewInit(): void {
     this.modalService.open(this.content,
       {
-        size: 'xl'
+        windowClass: 'view-maintainance-shift'
+
       }).result.then(
         (result) => {
           this.router.navigate(['/']);
@@ -31,4 +32,5 @@ export class ViewMaintainanceShiftComponent implements OnInit {
         }
       );
   }
+
 }

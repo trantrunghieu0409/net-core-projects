@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -15,6 +15,9 @@ import { PublicComponent } from './public/public.component';
 import { LocationComponent } from './location/location.component';
 import { PopComponent } from './pop/pop.component';
 import { MaintainanceShiftComponent } from './maintainance-shift/maintainance-shift.component';
+import { StaffMaintainComponent } from './staff-maintain/staff-maintain.component';
+import { ListMaintainComponent } from './list-maintain/list-maintain.component';
+import { SidebarInsideModalComponent } from './sidebar-inside-modal/sidebar-inside-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,16 @@ import { MaintainanceShiftComponent } from './maintainance-shift/maintainance-sh
     LocationComponent,
     PopComponent,
     MaintainanceShiftComponent,
+    StaffMaintainComponent,
+    ListMaintainComponent,
+    SidebarInsideModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

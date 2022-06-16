@@ -1,0 +1,39 @@
+.sidebar-inside {
+  height: 95%;
+  width: 0px;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.sidebar-inside.open {
+  width: 25%;
+}
+
+.sidebar-inside.close {
+  width: 0;
+}
+
+.search-view {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.btn.btn-secondary {
+  color: white;
+}
+
+.sidebar-inside.pin {
+  position:relative;
+  width: 100%;
+  transition: none;
+}
+
+.sidebar-inside.open.unpin {
+  transition: none;
+}

@@ -1,0 +1,48 @@
+<label>Danh sách list bảo trì</label>
+<form>
+  <div class="mb-3 row">
+    <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
+    <div class="col-xs-3 col-sm-auto">
+      <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter">
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Mã bảo trì</th>
+    <th scope="col">Loại POP</th>
+    <th scope="col">POP</th>
+    <th scope="col">NV Bảo trì</th>
+    <th scope="col">Ngày bảo trì</th>
+    <th scope="col">Ngày bảo trì thực tế</th>
+    <th scope="col">Loại bảo trì</th>
+    <th scope="col">Trạng thái</th>
+    <th scope="col">Kiểm soát</th>
+    <th scope="col">Số tiêu chí NOT OK</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let shift of shifts$ | async;">
+    <td>{{shift.ID}}</td>
+    <td><ngb-highlight [result]="shift.Code" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="shift.POPType" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="shift.POP" [term]="filter.value"></ngb-highlight></td>
+    <td><span class="badge bg-secondary" *ngFor="let staff of shift.Staff">{{staff}}</span></td>
+    <td>{{shift.MaintainDate | date:'dd/mm/yyyy' }}</td>
+    <td>{{shift.RealDate | date:'dd/mm/yyyy' }}</td>
+    <td>{{shift.MaintainType}}</td>
+    <td>{{shift.Status}}</td>
+    <td>{{shift.Control}}</td>
+    <td>{{shift.NOTOK}}</td>
+    <td>
+      <button class="btn btn-info btn-small"><i class="fa fa-info" aria-hidden="true"></i> Xem</button>
+      <button class="btn btn-warning btn-small"><i class="fa fa-edit" aria-hidden="true"></i> Sửa</button>
+      <button class="btn btn-danger btn-small"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

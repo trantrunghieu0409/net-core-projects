@@ -1,21 +1,8 @@
-form > div label {
-  color: purple;
-  text-align: right;
+.modal-body {
+  min-height: 500px;
 }
 
-.modal-header {
-  background-color: greenyellow;
-}
-
-form .pop > div > div {
-  border: solid gray 1px;
-}
-
-form .pop > div > div > button {
-  width: 100%;
-}
-
-.search-view {
-  overflow-y: scroll;
-  height: 500px;
+::ng-deep .view-maintainance-shift .modal-dialog {
+  max-width: 95%;
+  width: 95%;
 }

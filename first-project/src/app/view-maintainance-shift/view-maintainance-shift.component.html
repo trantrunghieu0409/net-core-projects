@@ -1,26 +1,23 @@
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <div class="d-flex flex-fill justify-content-center text-success">
-      <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
-    </div>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+<ng-template #content let-modal >
+  <div class="modal-header bg-info">
+  <div class="d-flex flex-fill justify-content-center text-primary">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
   </div>
-  <div class="modal-body">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-3">
-          <form>
-            <div class="search-view container-fluid mb-3">
-              <app-location></app-location>
-              <app-pop></app-pop>
-            </div>
-            <button class="btn btn-success">Xem</button>
-          </form>
-        </div>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+</div>
+<div class="modal-body">
+    <div class="row">
+      <div [ngClass]="{'col-3': sidebarinside.isPin}">
+        <app-sidebar-inside-modal #sidebarinside></app-sidebar-inside-modal>
+      </div>
+      <div [ngClass]="{'col-9': sidebarinside.isPin}">
+        <app-list-maintain></app-list-maintain>
+        <button class="btn btn-outline-secondary btn-small" (click)="sidebarinside.open()"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+          Mở rộng
+        </button>
       </div>
     </div>
 
-
-  </div>
+</div>
 </ng-template>
 

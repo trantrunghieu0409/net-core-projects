@@ -1,0 +1,12 @@
+div label {
+  color: purple;
+  text-align: right;
+}
+
+.pop > div > div {
+  border: solid gray 1px;
+}
+
+.pop > div > div > button {
+  width: 100%;
+}

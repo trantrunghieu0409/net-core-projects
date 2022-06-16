@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
-  <div class="modal-header">
-    <div class="d-flex flex-fill justify-content-center text-success">
+  <div class="modal-header bg-info">
+    <div class="d-flex flex-fill justify-content-center text-primary">
       <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
     </div>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
@@ -10,7 +10,7 @@
       <app-location [inline]=true></app-location>
       <app-pop [inline]=true></app-pop>
       <app-maintainance-shift></app-maintainance-shift>
-      <button class="btn btn-success"><i class="fa fa-list" aria-hidden="true"></i> Tạo list</button>
+      <button class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i> Tạo list</button>
     </form>
 
   </div>

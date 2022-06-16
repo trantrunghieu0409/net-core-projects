@@ -1,0 +1,23 @@
+<div class="sidebar-inside my-2" [ngClass]="{'open' : showSearchView, 'close': !showSearchView, 'pin': isPin, 'unpin': !isPin}" (mouseleave)="onMouseLeave()">
+  <div class="sidebar-inside-header d-flex justify-content-between">
+    <div class="mx-3 my-2">
+      <h5>{{title}}</h5>
+    </div>
+    <div class="mx-2">
+      <button class="btn btn-outline-secondary btn-small" [ngClass]="!isPin ? 'btn-light' : 'btn-secondary'"
+      (click)="isPin = !isPin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></button>
+      <button class="btn btn-small" (click)="showSearchView = false"><i class="fa fa-close" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <div class="sidebar-inside-body mx-4 mb-4">
+    <form>
+      <div class="search-view container-fluid mb-3">
+        <app-location></app-location>
+        <app-pop></app-pop>
+        <app-staff-maintain></app-staff-maintain>
+      </div>
+      <button class="btn btn-primary">Xem</button>
+    </form>
+  </div>
+</div>
