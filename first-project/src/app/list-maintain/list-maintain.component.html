@@ -1,4 +1,3 @@
-<label>Danh sách list bảo trì</label>
 <form>
   <div class="mb-3 bg-light d-flex justify-content-between px-2 py-2">
     <div class="row">
@@ -51,7 +50,7 @@
     <td>{{shift.Control}}</td>
     <td>{{shift.NOTOK}}</td>
     <td>
-      <button class="btn btn-info btn-small mx-1 my-1"><i class="fa fa-info" aria-hidden="true"></i> Xem</button>
+      <button class="btn btn-info btn-small mx-1 my-1" (click)="detail.viewDetail(shift)"><i class="fa fa-info" aria-hidden="true"></i> Xem</button>
       <button class="btn btn-warning btn-small mx-1 my-1" (click)="edit.open()"><i class="fa fa-edit" aria-hidden="true"></i> Sửa</button>
       <button class="btn btn-danger btn-small mx-1 my-1" (click)="confirmbox.toggle()"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</button>
 
@@ -64,7 +63,7 @@
 
     </td>
   </tr>
-  </tbody>
+</tbody>
 </table>
 
 
@@ -73,3 +72,5 @@
 
   <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="refreshShifts()"></ngb-pagination>
 </div>
+
+<app-detail-maintanance-shift #detail></app-detail-maintanance-shift>

@@ -1,0 +1,36 @@
+<app-smaller-containter #container title="Chi tiết báo cáo: {{shift.Code}}" [childTemplate]="detail"></app-smaller-containter>
+
+<ng-template #detail>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th scope="col">Loại POP</th>
+        <td>{{shift.POPType}}</td>
+      </tr>
+      <tr>
+        <th scope="col">POP</th>
+        <td>{{shift.POP}}</td>
+      </tr>
+    <tr>
+      <th scope="col">NV Bảo trì</th>
+      <td><span class="badge bg-secondary me-1" *ngFor="let staff of shift.Staff">{{staff}}</span></td>
+    </tr>
+    <tr>
+      <th scope="col">Ngày bảo trì</th>
+      <td>{{shift.MaintainDate | date:'dd/MM/yyyy' }}</td>
+    </tr>
+    <tr>
+      <th scope="col">Ngày bảo trì thực tế</th>
+      <td>{{shift.RealDate | date:'dd/MM/yyyy' }}</td>
+    </tr>
+    <tr>
+      <th scope="col">Loại bảo trì</th>
+      <td>{{shift.MaintainType}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Trạng thái</th>
+      <td>{{shift.Status}}</td>
+    </tr>
+  </tbody>
+  </table>
+</ng-template>

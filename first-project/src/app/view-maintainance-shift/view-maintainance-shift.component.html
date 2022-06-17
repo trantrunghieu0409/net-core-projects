@@ -8,13 +8,16 @@
 <div class="modal-body">
     <div class="row">
       <div [ngClass]="{'col-3': sidebarinside.isPin}">
+        <app-sidebar-inside-modal #sidebarinside (onViewData)="containter.open()"></app-sidebar-inside-modal>
+      </div>
+      <div [ngClass]="{'col-9': sidebarinside.isPin}">
         <button class="btn btn-outline-secondary btn-small" (click)="sidebarinside.open()"[hidden]="sidebarinside.showSearchView"><i class="fa fa-arrow-right" aria-hidden="true"></i>
           Mở rộng
         </button>
-        <app-sidebar-inside-modal #sidebarinside></app-sidebar-inside-modal>
-      </div>
-      <div [ngClass]="{'col-9': sidebarinside.isPin}">
-        <app-list-maintain></app-list-maintain>
+        <app-smaller-containter #containter [childTemplate]="listmaintain" title="Danh sách bảo trì"></app-smaller-containter>
+        <ng-template #listmaintain>
+          <app-list-maintain></app-list-maintain>
+        </ng-template>
       </div>
     </div>
 

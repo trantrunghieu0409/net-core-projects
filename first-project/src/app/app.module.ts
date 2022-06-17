@@ -21,6 +21,9 @@ import { SidebarInsideModalComponent } from './sidebar-inside-modal/sidebar-insi
 import { DatepickerRangeComponent } from './datepicker-range/datepicker-range.component';
 import { ConfirmboxComponent } from './confirmbox/confirmbox.component';
 import { EditMaintainanceShiftComponent } from './edit-maintainance-shift/edit-maintainance-shift.component';
+import { DetailMaintananceShiftComponent } from './detail-maintanance-shift/detail-maintanance-shift.component';
+import { SmallerContainterComponent } from './smaller-containter/smaller-containter.component';
+import { ParagraphInputComponent } from './paragraph-input/paragraph-input.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { EditMaintainanceShiftComponent } from './edit-maintainance-shift/edit-m
     DatepickerRangeComponent,
     ConfirmboxComponent,
     EditMaintainanceShiftComponent,
+    DetailMaintananceShiftComponent,
+    SmallerContainterComponent,
+    ParagraphInputComponent,
   ],
   imports: [
     BrowserModule,

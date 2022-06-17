@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -8,6 +8,7 @@ import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SidebarInsideModalComponent implements OnInit {
   @ViewChild('sidebar-inside') sidebar: any;
+  @Output('onViewData') onViewData = new EventEmitter();
   isPin = false;
   showSearchView = false;
   title="Xem danh sách bảo trì"

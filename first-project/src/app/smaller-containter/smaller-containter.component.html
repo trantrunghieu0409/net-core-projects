@@ -1,0 +1,9 @@
+<div *ngIf="show" class="my-2" style="border-top: solid 1px gray;">
+  <div class="d-flex justify-content-between my-2">
+    <h5 class="title">{{title}}</h5>
+    <button class="btn-close" aria-label="close" (click)="close()"></button>
+  </div>
+  <div class="body">
+    <ng-template [ngTemplateOutlet]="childTemplate"></ng-template>
+  </div>
+</div>

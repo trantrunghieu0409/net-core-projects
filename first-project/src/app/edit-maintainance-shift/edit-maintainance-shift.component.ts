@@ -15,6 +15,6 @@ export class EditMaintainanceShiftComponent implements OnInit {
   }
 
   open() : void {
-    this.modalService.open(this.content);
+    this.modalService.open(this.content, {size: 'lg'});
   }
 }
