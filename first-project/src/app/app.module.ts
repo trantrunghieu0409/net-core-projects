@@ -20,6 +20,7 @@ import { ListMaintainComponent } from './list-maintain/list-maintain.component';
 import { SidebarInsideModalComponent } from './sidebar-inside-modal/sidebar-inside-modal.component';
 import { DatepickerRangeComponent } from './datepicker-range/datepicker-range.component';
 import { ConfirmboxComponent } from './confirmbox/confirmbox.component';
+import { EditMaintainanceShiftComponent } from './edit-maintainance-shift/edit-maintainance-shift.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ConfirmboxComponent } from './confirmbox/confirmbox.component';
     SidebarInsideModalComponent,
     DatepickerRangeComponent,
     ConfirmboxComponent,
+    EditMaintainanceShiftComponent,
   ],
   imports: [
     BrowserModule,

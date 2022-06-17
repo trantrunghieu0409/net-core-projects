@@ -1,0 +1,12 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title mr-1" id="modal-basic-title"><label>{{title}}</label></h6>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <app-maintainance-shift></app-maintainance-shift>
+      <button class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i> Cập nhật</button>
+    </form>
+  </div>
+</ng-template>

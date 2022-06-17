@@ -52,13 +52,16 @@
     <td>{{shift.NOTOK}}</td>
     <td>
       <button class="btn btn-info btn-small mx-1 my-1"><i class="fa fa-info" aria-hidden="true"></i> Xem</button>
-      <button class="btn btn-warning btn-small mx-1 my-1"><i class="fa fa-edit" aria-hidden="true"></i> Sửa</button>
+      <button class="btn btn-warning btn-small mx-1 my-1" (click)="edit.open()"><i class="fa fa-edit" aria-hidden="true"></i> Sửa</button>
       <button class="btn btn-danger btn-small mx-1 my-1" (click)="confirmbox.toggle()"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</button>
 
+      <app-edit-maintainance-shift #edit title="Cập nhật ca bảo trì {{shift.Code}}"></app-edit-maintainance-shift>
       <app-confirmbox #confirmbox [childTemplate]="childTemplate" Yes='Xóa' No="Hủy xóa"></app-confirmbox>
       <ng-template #childTemplate>
         <span>Bạn có chắc chắn muốn xóa mã bảo trì {{shift.Code}}?</span>
       </ng-template>
+
+
     </td>
   </tr>
   </tbody>
