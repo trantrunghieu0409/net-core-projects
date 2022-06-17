@@ -1,0 +1,36 @@
+<div class="input-group">
+
+  <input name="datepicker"
+  class="form-control"
+  ngbDatepicker
+  #datepicker="ngbDatepicker"
+  [autoClose]="'outside'"
+  (dateSelect)="onDateSelection($event)"
+  [displayMonths]="2"
+  [dayTemplate]="t"
+  outsideDays="hidden"
+  [startDate]="fromDate!"
+  placeholder="{{placeholder}}"
+  placement="top"
+  value="Từ ngày {{formatter.format(toDate)}} tới ngày {{formatter.format(toDate)}}"
+
+  readonly
+  (click)="toggle()">
+
+
+
+  <button #buttonToggle class="btn btn-outline-primary input-group-text" (click)="datepicker.toggle()" type="button" [hidden]="true"
+  ><i class="fa fa-calendar" aria-hidden="true"></i></button>
+
+
+</div>
+<ng-template #t let-date let-focused="focused">
+<span class="custom-day"
+      [class.focused]="focused"
+      [class.range]="isRange(date)"
+      [class.faded]="isHovered(date) || isInside(date)"
+      (mouseenter)="hoveredDate = date"
+      (mouseleave)="hoveredDate = null">
+  {{ date.day }}
+</span>
+</ng-template>

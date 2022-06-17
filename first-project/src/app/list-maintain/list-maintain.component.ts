@@ -72,6 +72,9 @@ function search(text: string): MaintainanceShift[] {
 export class ListMaintainComponent implements OnInit {
   shifts$ = new Observable<MaintainanceShift[]>();
   filter = new FormControl('');
+  collectionSize = SHIFTS.length;
+  pageSize = 3;
+  page = 1;
 
   constructor() {
     this.shifts$ = this.filter.valueChanges.pipe(
@@ -83,5 +86,7 @@ export class ListMaintainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  refreshShifts(): void {
+    console.log(this.pageSize);
+  }
 }

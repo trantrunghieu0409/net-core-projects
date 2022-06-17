@@ -18,6 +18,7 @@ import { MaintainanceShiftComponent } from './maintainance-shift/maintainance-sh
 import { StaffMaintainComponent } from './staff-maintain/staff-maintain.component';
 import { ListMaintainComponent } from './list-maintain/list-maintain.component';
 import { SidebarInsideModalComponent } from './sidebar-inside-modal/sidebar-inside-modal.component';
+import { DatepickerRangeComponent } from './datepicker-range/datepicker-range.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SidebarInsideModalComponent } from './sidebar-inside-modal/sidebar-insi
     StaffMaintainComponent,
     ListMaintainComponent,
     SidebarInsideModalComponent,
+    DatepickerRangeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,21 @@
 <label>Danh sách list bảo trì</label>
 <form>
-  <div class="mb-3 row">
-    <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
-    <div class="col-xs-3 col-sm-auto">
-      <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter">
+  <div class="mb-3 bg-light d-flex justify-content-between px-2 py-2">
+    <div class="row">
+      <div class="col-auto">
+        <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" placeholder="Search">
+      </div>
+      <div class="col-auto">
+        <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshShifts()" name="pageSize">
+          <option [ngValue]="3">3</option>
+          <option [ngValue]="4">4</option>
+          <option [ngValue]="5">5</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Xuất Excel</button>
     </div>
   </div>
 </form>
@@ -39,10 +51,17 @@
     <td>{{shift.Control}}</td>
     <td>{{shift.NOTOK}}</td>
     <td>
-      <button class="btn btn-info btn-small"><i class="fa fa-info" aria-hidden="true"></i> Xem</button>
-      <button class="btn btn-warning btn-small"><i class="fa fa-edit" aria-hidden="true"></i> Sửa</button>
-      <button class="btn btn-danger btn-small"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</button>
+      <button class="btn btn-info btn-small mx-1 my-1"><i class="fa fa-info" aria-hidden="true"></i> Xem</button>
+      <button class="btn btn-warning btn-small mx-1 my-1"><i class="fa fa-edit" aria-hidden="true"></i> Sửa</button>
+      <button class="btn btn-danger btn-small mx-1 my-1"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</button>
     </td>
   </tr>
   </tbody>
 </table>
+
+
+<div class="d-flex justify-content-between p-2">
+  <span class="fw-light">Tìm thấy {{collectionSize}} kết quả</span>
+
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="refreshShifts()"></ngb-pagination>
+</div>
