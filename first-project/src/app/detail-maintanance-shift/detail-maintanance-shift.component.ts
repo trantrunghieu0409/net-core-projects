@@ -9,6 +9,7 @@ import { MaintainanceShift } from '../list-maintain/shift.template';
 export class DetailMaintananceShiftComponent implements OnInit {
   @ViewChild('container') container: any;
   shift!: MaintainanceShift;
+  show = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -16,6 +17,7 @@ export class DetailMaintananceShiftComponent implements OnInit {
 
   viewDetail(shift: MaintainanceShift) : void {
     this.shift = shift;
+    this.show = true;
     this.container.open();
   }
 }

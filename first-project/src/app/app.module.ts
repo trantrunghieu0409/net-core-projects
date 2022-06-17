@@ -24,6 +24,8 @@ import { EditMaintainanceShiftComponent } from './edit-maintainance-shift/edit-m
 import { DetailMaintananceShiftComponent } from './detail-maintanance-shift/detail-maintanance-shift.component';
 import { SmallerContainterComponent } from './smaller-containter/smaller-containter.component';
 import { ParagraphInputComponent } from './paragraph-input/paragraph-input.component';
+import { NgxSummernoteModule } from 'ngx-summernote';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { ParagraphInputComponent } from './paragraph-input/paragraph-input.compo
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSummernoteModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

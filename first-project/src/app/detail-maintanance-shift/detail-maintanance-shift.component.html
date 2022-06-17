@@ -1,4 +1,4 @@
-<app-smaller-containter #container title="Chi tiết báo cáo: {{shift.Code}}" [childTemplate]="detail"></app-smaller-containter>
+<app-smaller-containter #container title="Chi tiết báo cáo: {{shift.Code}}" [childTemplate]="detail" *ngIf="show"></app-smaller-containter>
 
 <ng-template #detail>
   <table class="table table-striped">
@@ -33,4 +33,17 @@
     </tr>
   </tbody>
   </table>
+  <app-paragraph-input title="Xác nhận bảo trì"></app-paragraph-input>
+  <div>
+    <div class="btn-group my-2" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-success" for="btnradio1">OK</label>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-danger" for="btnradio3">Not OK</label>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-primary text-white">Xác nhận kết quả</button>
+  </div>
 </ng-template>
