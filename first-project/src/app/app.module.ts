@@ -19,6 +19,7 @@ import { StaffMaintainComponent } from './staff-maintain/staff-maintain.componen
 import { ListMaintainComponent } from './list-maintain/list-maintain.component';
 import { SidebarInsideModalComponent } from './sidebar-inside-modal/sidebar-inside-modal.component';
 import { DatepickerRangeComponent } from './datepicker-range/datepicker-range.component';
+import { ConfirmboxComponent } from './confirmbox/confirmbox.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DatepickerRangeComponent } from './datepicker-range/datepicker-range.co
     ListMaintainComponent,
     SidebarInsideModalComponent,
     DatepickerRangeComponent,
+    ConfirmboxComponent,
   ],
   imports: [
     BrowserModule,

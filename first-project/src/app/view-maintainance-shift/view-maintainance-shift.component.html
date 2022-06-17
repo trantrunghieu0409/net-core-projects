@@ -8,13 +8,13 @@
 <div class="modal-body">
     <div class="row">
       <div [ngClass]="{'col-3': sidebarinside.isPin}">
+        <button class="btn btn-outline-secondary btn-small" (click)="sidebarinside.open()"[hidden]="sidebarinside.showSearchView"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+          Mở rộng
+        </button>
         <app-sidebar-inside-modal #sidebarinside></app-sidebar-inside-modal>
       </div>
       <div [ngClass]="{'col-9': sidebarinside.isPin}">
         <app-list-maintain></app-list-maintain>
-        <button class="btn btn-outline-secondary btn-small" (click)="sidebarinside.open()"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-          Mở rộng
-        </button>
       </div>
     </div>
 

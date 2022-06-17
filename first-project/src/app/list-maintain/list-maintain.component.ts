@@ -28,8 +28,8 @@ const SHIFTS: MaintainanceShift[] = [
       "tester.ktv1",
       "tester.adminntcap"
     ],
-    MaintainDate: Date.parse("19/01/2022"),
-    RealDate: Date.parse("19/01/2022"),
+    MaintainDate: parseDate("2022-01-19"),
+    RealDate: parseDate("2022-01-19"),
     MaintainType: 'Định kỳ',
     Status: "Quá hạn",
     Control: "Chưa xác nhận",
@@ -45,14 +45,22 @@ const SHIFTS: MaintainanceShift[] = [
       "tester.ktv1",
       "tester.adminntcap"
     ],
-    MaintainDate: Date.parse("01/19/2022"),
-    RealDate: Date.parse("01/19/2022"),
+    MaintainDate: parseDate("2022-01-19"),
+    RealDate: parseDate("2022-05-19"),
     MaintainType: 'Định kỳ',
     Status: "Đã hoàn tất",
     Control: "Đã xác nhận lại 2",
     NOTOK: 4
   }
 ]
+
+function parseDate(input: string) {
+
+  let parts = input.split('-');
+
+  // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+  return new Date(Number(parts[0]), Number(parts[1]), Number(parts[2])).getTime(); // Note: months are 0-based
+}
 
 function search(text: string): MaintainanceShift[] {
   return SHIFTS.filter(shift => {

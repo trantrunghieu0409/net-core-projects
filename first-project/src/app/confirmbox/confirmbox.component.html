@@ -1,0 +1,11 @@
+<ng-template #content let-modal>
+  <div class="modal-body  d-flex justify-content-center">
+    <img src="assets/imgs/warning-icon.png" alt="" style="width: 75px; height: 75px;">
+    <ng-container [ngTemplateOutlet]="childTemplate"></ng-container>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <button type="button mr-2" class="btn btn-info" (click)="modal.close('YES')">{{yes}}</button>
+    <button type="button mr-2" class="btn btn-outline-danger" *ngIf="mode !== 1" (click)="modal.close('NO')">{{no}}</button>
+    <button type="button" class="btn btn-outline-dark" *ngIf="mode !== 0" (click)="modal.close('CANCEL')">{{cancel}}</button>
+  </div>
+</ng-template>
