@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PublicComponent } from './public/public.component';
 import { PreloadAllModules } from '@angular/router';
 import { ViewMaintainanceShiftComponent } from './view-maintainance-shift/view-maintainance-shift.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   { path: 'map', component: HomepageComponent , children: [
@@ -14,6 +15,9 @@ const routes: Routes = [
     },
     {
       path: 'view-maintainance-shift', component: ViewMaintainanceShiftComponent
+    },
+    {
+      path: 'report', component: ReportComponent
     }
   ]},
   {

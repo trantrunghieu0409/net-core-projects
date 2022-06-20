@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -8,29 +8,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./view-maintainance-shift.component.css']
 })
 export class ViewMaintainanceShiftComponent implements OnInit {
-  @ViewChild('content') content: any;
-  idModal: string = "create-maintainance-shift";
+  @ViewChild('container') container: any;
+
   title: string = "Danh sách ca bảo trì";
   LoaiBaoTri: number = 0;
-  constructor(private modalService: NgbModal, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    this.modalService.open(this.content,
-      {
-        windowClass: 'view-maintainance-shift'
-
-      }).result.then(
-        (result) => {
-          this.router.navigate(['/']);
-        },
-        (reason) => {
-          // reload page after navigate to reset view
-          this.router.navigate(['/']);
-        }
-      );
+  openContainer() {
+    console.log(this.container)
+    this.container.open();
   }
-
 }

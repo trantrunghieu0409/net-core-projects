@@ -19,11 +19,6 @@
   width: 0;
 }
 
-.search-view {
-  height: 360px;
-  overflow-y: scroll;
-}
-
 .btn.btn-secondary {
   color: white;
 }

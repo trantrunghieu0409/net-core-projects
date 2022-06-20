@@ -1,4 +1,4 @@
 .small-form {
   height: 360px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }

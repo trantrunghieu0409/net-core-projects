@@ -1,0 +1,55 @@
+<app-modal-main [childTemplate]="viewMaintainanceShift" [title]="title"></app-modal-main>
+
+<ng-template #viewMaintainanceShift>
+  <app-container-with-sidebar [templateInsideModal]="insideSidebar" titleSidebar="Tùy chọn" [templateOutsideModal]="outsideSidebar"></app-container-with-sidebar>
+  <ng-template #insideSidebar>
+    <form>
+      <div class="small-form container-fluid mb-3">
+        <app-location></app-location>
+        <app-pop></app-pop>
+
+        <div class="row my-3">
+          <div class="d-flex">
+            <label for="TrangThai" class="form-label">Trạng thái</label>
+          </div>
+          <div>
+            <select class="form-select">
+              <option selected>Tất cả</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="row mb-3">
+          <div class="d-flex">
+            <label for="FromDate" class="form-label">Từ ngày</label>
+          </div>
+          <div>
+            <div class="input-group">
+              <input type="text" class="form-control" ngbDatepicker #fromDate="ngbDatepicker" placeholder="-- ngày bắt đầu --"
+              placement="top" (click)="fromDate.toggle()" readonly/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="d-flex">
+            <label for="ToDate" class="form-label">Đến ngày</label>
+          </div>
+          <div>
+            <div class="input-group">
+              <input type="text" class="form-control" ngbDatepicker #toDate="ngbDatepicker" placeholder="-- ngày kết thúc --"
+              placement="top" (click)="toDate.toggle()" readonly/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="btn btn-primary" (click)="openReport()">Xem</button>
+    </form>
+  </ng-template>
+  <ng-template #outsideSidebar>
+    Container here!
+  </ng-template>
+</ng-template>
+

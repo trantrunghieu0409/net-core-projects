@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-sidebar-inside-modal',
@@ -8,32 +7,33 @@ import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SidebarInsideModalComponent implements OnInit {
   @ViewChild('sidebar-inside') sidebar: any;
+  @Input('title') title = "";
+  @Input('insideSidebar') insideSidebar!: TemplateRef<any>;
   @Output('onViewData') onViewData = new EventEmitter();
   isPin = false;
-  showSearchView = false;
-  title="Xem danh sách bảo trì"
-  constructor(private offcanvasService: NgbOffcanvas) {
+  show = true;
 
+  constructor() {
   }
 
   open() {
-    this.showSearchView = true;
+    this.show = true;
   }
 
   close() {
-    this.showSearchView = false;
+    this.show = false;
   }
 
   ngOnInit(): void {
   }
 
   toggle(): void {
-    this.showSearchView = !this.showSearchView;
+    this.show = !this.show;
   }
 
   onMouseLeave() {
     if (!this.isPin) {
-      this.showSearchView = false;
+      this.show = false;
     }
   }
 }

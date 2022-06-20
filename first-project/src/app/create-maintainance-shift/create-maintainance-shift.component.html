@@ -1,11 +1,6 @@
-<ng-template #content let-modal>
-  <div class="modal-header bg-info">
-    <div class="d-flex flex-fill justify-content-center text-primary">
-      <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
-    </div>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
-  </div>
-  <div class="modal-body">
+<app-modal-main [childTemplate]="createMaintainanceShift" [title]="title"></app-modal-main>
+
+<ng-template #createMaintainanceShift>
     <form class="container-fluid">
       <app-location [inline]=true></app-location>
       <app-pop [inline]=true></app-pop>
@@ -32,7 +27,5 @@
 
       <button class="btn btn-primary"><i class="fa fa-list" aria-hidden="true"></i> Tạo list</button>
     </form>
-
-  </div>
 </ng-template>
 

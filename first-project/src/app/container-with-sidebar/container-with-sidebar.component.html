@@ -1,0 +1,14 @@
+<div class="row">
+  <div [ngClass]="{'col-3': sidebarinside.isPin}">
+    <app-sidebar-inside-modal #sidebarinside [title]="titleSidebar" [insideSidebar]="childTemplate"></app-sidebar-inside-modal>
+    <ng-template #childTemplate>
+      <ng-template [ngTemplateOutlet]="insideSidebar"></ng-template>
+    </ng-template>
+  </div>
+  <div [ngClass]="{'col-9': sidebarinside.isPin}">
+    <button class="btn btn-outline-secondary btn-small" (click)="sidebarinside.open()"[hidden]="sidebarinside.show"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+      Mở rộng
+    </button>
+    <ng-template [ngTemplateOutlet]="outsideSidebar"></ng-template>
+  </div>
+</div>

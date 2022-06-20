@@ -1,26 +1,22 @@
-<ng-template #content let-modal >
-  <div class="modal-header bg-info">
-  <div class="d-flex flex-fill justify-content-center text-primary">
-    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
-  </div>
-  <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
-</div>
-<div class="modal-body">
-    <div class="row">
-      <div [ngClass]="{'col-3': sidebarinside.isPin}">
-        <app-sidebar-inside-modal #sidebarinside (onViewData)="containter.open()"></app-sidebar-inside-modal>
-      </div>
-      <div [ngClass]="{'col-9': sidebarinside.isPin}">
-        <button class="btn btn-outline-secondary btn-small" (click)="sidebarinside.open()"[hidden]="sidebarinside.showSearchView"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-          Mở rộng
-        </button>
-        <app-smaller-containter #containter [childTemplate]="listmaintain" title="Danh sách bảo trì"></app-smaller-containter>
-        <ng-template #listmaintain>
-          <app-list-maintain></app-list-maintain>
-        </ng-template>
-      </div>
-    </div>
+<app-modal-main [childTemplate]="viewMaintainanceShift" [title]="title"></app-modal-main>
 
-</div>
+<ng-template #viewMaintainanceShift>
+  <app-container-with-sidebar [templateInsideModal]="insideSidebar" titleSidebar="Xem danh sách bảo trì" [templateOutsideModal]="outsideSidebar"></app-container-with-sidebar>
+  <ng-template #insideSidebar>
+    <form>
+      <div class="small-form container-fluid mb-3">
+        <app-location></app-location>
+        <app-pop></app-pop>
+        <app-staff-maintain></app-staff-maintain>
+      </div>
+      <button class="btn btn-primary" (click)="openContainer()">Xem</button>
+    </form>
+  </ng-template>
+  <ng-template #outsideSidebar>
+    <app-smaller-containter #container [childTemplate]="listmaintain" title="Danh sách bảo trì"></app-smaller-containter>
+    <ng-template #listmaintain>
+      <app-list-maintain></app-list-maintain>
+    </ng-template>
+  </ng-template>
 </ng-template>
 

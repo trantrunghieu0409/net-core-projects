@@ -26,6 +26,10 @@ import { SmallerContainterComponent } from './smaller-containter/smaller-contain
 import { ParagraphInputComponent } from './paragraph-input/paragraph-input.component';
 import { NgxSummernoteModule } from 'ngx-summernote';
 import { HttpClientModule } from '@angular/common/http';
+import { ReportComponent } from './report/report.component';
+import { ModalMainComponent } from './modal-main/modal-main.component';
+import { ContainerWithSidebarComponent } from './container-with-sidebar/container-with-sidebar.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { HttpClientModule } from '@angular/common/http';
     DetailMaintananceShiftComponent,
     SmallerContainterComponent,
     ParagraphInputComponent,
+    ReportComponent,
+    ModalMainComponent,
+    ContainerWithSidebarComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,

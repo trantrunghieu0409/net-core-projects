@@ -1,0 +1,8 @@
+.modal-body {
+  min-height: 500px;
+}
+
+::ng-deep .modal-dialog {
+  max-width: 95%;
+  width: 95%;
+}

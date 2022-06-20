@@ -1,0 +1,11 @@
+<ng-template #content let-modal >
+  <div class="modal-header bg-info">
+  <div class="d-flex flex-fill justify-content-center text-primary">
+    <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+  </div>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+</div>
+<div class="modal-body">
+  <ng-template [ngTemplateOutlet]="childTemplate"></ng-template>
+</div>
+</ng-template>

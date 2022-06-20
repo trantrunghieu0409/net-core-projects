@@ -8,29 +8,13 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './create-maintainance-shift.component.html',
   styleUrls: ['./create-maintainance-shift.component.css']
 })
-export class CreateMaintainanceShiftComponent implements OnInit, AfterViewInit {
+export class CreateMaintainanceShiftComponent implements OnInit{
   @ViewChild('content') content: any;
   idModal: string = "create-maintainance-shift";
   title: string = "Tạo list bảo trì";
 
-  constructor(private modalService: NgbModal, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-
-  ngAfterViewInit(): void {
-    this.modalService.open(this.content,
-      {
-        size: 'xl'
-      }).result.then(
-        (result) => {
-          this.router.navigate(['/']);
-        },
-        (reason) => {
-          // reload page after navigate to reset view
-          this.router.navigate(['/']);
-        }
-      );
-  }
-
 }
