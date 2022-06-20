@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-body">
-    <app-smaller-containter #container [childTemplate]="childTemplate" title="{{title}}" (onClose)="modal.close()"></app-smaller-containter>
+    <app-smaller-containter #container [childTemplate]="childTemplate" title="{{title}}" (onClose)="modal.close()" [show]=true></app-smaller-containter>
     <ng-template #childTemplate>
       <form>
         <app-maintainance-shift></app-maintainance-shift>

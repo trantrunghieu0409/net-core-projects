@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MaintainanceShift } from '../list-maintain/shift.template';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-detail-maintanance-shift',
@@ -17,7 +18,14 @@ export class DetailMaintananceShiftComponent implements OnInit {
 
   viewDetail(shift: MaintainanceShift) : void {
     this.shift = shift;
+    console.log(shift);
     this.show = true;
-    this.container.open();
+    try {
+      this.container.open();
+    }
+    catch (e) {
+      console.log(e);
+      setTimeout(() => { this.container.open(); });
+    }
   }
 }

@@ -9,8 +9,9 @@ import { EventEmitter } from '@angular/core';
 export class SmallerContainterComponent implements OnInit {
   @Input('title') title: string = 'Container Title';
   @Input('childTemplate') childTemplate!: TemplateRef<any>;
+  @Input('show') show = false;
+
   @Output('onClose') onClose = new EventEmitter();
-  show = false;
 
   constructor() { }
 

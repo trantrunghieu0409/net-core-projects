@@ -37,7 +37,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let shift of shifts$ | async;">
+  <tr *ngFor="let shift of shifts$| async">
     <td>{{shift.ID}}</td>
     <td><ngb-highlight [result]="shift.Code" [term]="filter.value"></ngb-highlight></td>
     <td><ngb-highlight [result]="shift.POPType" [term]="filter.value"></ngb-highlight></td>
