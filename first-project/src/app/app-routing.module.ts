@@ -7,6 +7,7 @@ import { PublicComponent } from './public/public.component';
 import { PreloadAllModules } from '@angular/router';
 import { ViewMaintainanceShiftComponent } from './view-maintainance-shift/view-maintainance-shift.component';
 import { ReportComponent } from './report/report.component';
+import { ViewListMailComponent } from './view-list-mail/view-list-mail.component';
 
 const routes: Routes = [
   { path: 'map', component: HomepageComponent , children: [
@@ -15,6 +16,9 @@ const routes: Routes = [
     },
     {
       path: 'view-maintainance-shift', component: ViewMaintainanceShiftComponent
+    },
+    {
+      path: 'view-list-mail', component: ViewListMailComponent
     },
     {
       path: 'report', component: ReportComponent

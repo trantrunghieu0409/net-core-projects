@@ -9,7 +9,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ViewMaintainanceShiftComponent implements OnInit {
   @ViewChild('container') container: any;
-
   title: string = "Danh sách ca bảo trì";
   LoaiBaoTri: number = 0;
   constructor() { }
@@ -18,7 +17,6 @@ export class ViewMaintainanceShiftComponent implements OnInit {
   }
 
   openContainer() {
-    console.log(this.container)
     this.container.open();
   }
 }

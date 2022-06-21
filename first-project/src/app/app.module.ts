@@ -29,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReportComponent } from './report/report.component';
 import { ModalMainComponent } from './modal-main/modal-main.component';
 import { ContainerWithSidebarComponent } from './container-with-sidebar/container-with-sidebar.component';
+import { NgChartsModule } from 'ng2-charts';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { ViewListMailComponent } from './view-list-mail/view-list-mail.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     ModalMainComponent,
     ContainerWithSidebarComponent,
     PieChartComponent,
+    ViewListMailComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     NgbModule,
     ReactiveFormsModule,
     NgxSummernoteModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
