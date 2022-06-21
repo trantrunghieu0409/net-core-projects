@@ -2,7 +2,12 @@
   min-height: 500px;
 }
 
-::ng-deep .modal-dialog {
+::ng-deep abc .modal-dialog {
+  max-width: 95%;
+  width: 95%;
+}
+
+.modal-xl {
   max-width: 95%;
   width: 95%;
 }
