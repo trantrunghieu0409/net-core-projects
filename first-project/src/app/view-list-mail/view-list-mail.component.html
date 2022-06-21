@@ -1,19 +1,23 @@
 <app-modal-main [childTemplate]="viewListMail" [title]="title"></app-modal-main>
 
 <ng-template #viewListMail>
-  <app-container-with-sidebar [templateInsideModal]="insideSidebar" titleSidebar="Xem danh sách bảo trì" [templateOutsideModal]="outsideSidebar"></app-container-with-sidebar>
+  <app-container-with-sidebar [templateInsideModal]="insideSidebar" titleSidebar="Tùy chọn" [templateOutsideModal]="outsideSidebar"></app-container-with-sidebar>
   <ng-template #insideSidebar>
     <form>
       <div class="small-form container-fluid mb-3">
         <app-location></app-location>
       </div>
-      <button class="btn btn-primary" (click)="openContainer()">Xem</button>
+      <div>
+        <button class="btn btn-primary me-1 mb-1" (click)="openContainer()"><i class="fa fa-search" aria-hidden="true"></i> Xem</button>
+        <button class="btn btn-primary mb-1"><i class="fa fa-file" aria-hidden="true"></i> Chọn file import</button>
+        <button class="btn btn-warning">File template</button>
+      </div>
     </form>
   </ng-template>
   <ng-template #outsideSidebar>
-    <app-smaller-containter #container [childTemplate]="listmaintain" title="Danh sách bảo trì"></app-smaller-containter>
-    <ng-template #listmaintain>
-      <app-list-maintain></app-list-maintain>
+    <app-smaller-containter #container [childTemplate]="listMailTable" title="Danh sách nhận mail"></app-smaller-containter>
+    <ng-template #listMailTable>
+      <app-list-mail></app-list-mail>
     </ng-template>
   </ng-template>
 </ng-template>

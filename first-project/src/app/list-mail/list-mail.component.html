@@ -1,0 +1,82 @@
+<form>
+  <div class="mb-3 bg-light d-flex justify-content-between px-2 py-2">
+    <div class="row">
+      <div class="col-auto">
+        <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" placeholder="Search">
+      </div>
+      <div class="col-auto">
+        <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshEmployees()" name="pageSize">
+          <option [ngValue]="5">5</option>
+          <option [ngValue]="10">10</option>
+          <option [ngValue]="20">20</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Xuất Excel</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Account MobiMap</th>
+    <th scope="col">Tên nhân sự</th>
+    <th scope="col">Email</th>
+    <th scope="col">Chức năng</th>
+    <th scope="col">Ghi chú</th>
+    <th scope="col">Người tạo</th>
+    <th scope="col">Ngày tạo</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees$| async; index as i">
+    <td>{{i + 1}}</td>
+    <td><ngb-highlight [result]="employee.AccountMobiMap" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="employee.Name" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="employee.Email" [term]="filter.value"></ngb-highlight></td>
+    <td>{{employee.Role}}</td>
+    <td>{{employee.Note}}</td>
+    <td>{{employee.CreatedBy}}</td>
+    <td>{{employee.CreatedDate | date:'dd/MM/yyyy' }}</td>
+    <td>
+      <button class="btn btn-warning btn-small mx-1 my-1" (click)="editing = true" ><i class="fa fa-edit" aria-hidden="true"></i> Sửa</button>
+      <button class="btn btn-danger btn-small mx-1 my-1" (click)="confirmbox.toggle()"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</button>
+
+      <app-confirmbox #confirmbox [childTemplate]="childTemplate" Yes='Đồng ý' Cancel="Hủy"></app-confirmbox>
+      <ng-template #childTemplate>
+        <span>Bạn có chắc chắc muốn xóa thông tin nhận mail này không?</span>
+      </ng-template>
+
+
+    </td>
+  </tr>
+  <tr class="form-group" [hidden]="!editing">
+    <td></td>
+    <td><input type="text" class='form-control' name="AccountMobiMap" placeholder="Nhập account MobiMap"></td>
+    <td><input type="text" class='form-control' name="Name" placeholder="Tên nhân sự"></td>
+    <td><input type="email" class='form-control' name="Email" placeholder="Email"></td>
+    <td>
+      <select class="form-select">
+        <option [ngValue]="1">1</option>
+        <option [ngValue]="2">2</option>
+        <option [ngValue]="3">3</option>
+      </select>
+    </td>
+    <td><input type="text" class='form-control' name="Note" placeholder="Ghi chú"></td>
+    <td><button class="btn btn-primary" (click)="editing=false"><i class="fa fa-user-plus" aria-hidden="true"></i>Thêm</button></td>
+  </tr>
+</tbody>
+</table>
+
+
+<div class="d-flex justify-content-between p-2">
+  <span class="fw-light">Tìm thấy {{collectionSize}} kết quả</span>
+
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="refreshEmployees()"></ngb-pagination>
+</div>
+

@@ -32,6 +32,7 @@ import { ContainerWithSidebarComponent } from './container-with-sidebar/containe
 import { NgChartsModule } from 'ng2-charts';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { ViewListMailComponent } from './view-list-mail/view-list-mail.component';
+import { ListMailComponent } from './list-mail/list-mail.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ViewListMailComponent } from './view-list-mail/view-list-mail.component
     ContainerWithSidebarComponent,
     PieChartComponent,
     ViewListMailComponent,
+    ListMailComponent,
   ],
   imports: [
     BrowserModule,

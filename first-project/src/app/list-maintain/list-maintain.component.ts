@@ -32,6 +32,5 @@ export class ListMaintainComponent implements OnInit {
   refreshShifts(): void {
     this.shifts$ = this.shiftService.getShiftsByPage(this.page, this.pageSize);
     this.collectionSize = this.shiftService.getTotalShifts();
-
   }
 }
